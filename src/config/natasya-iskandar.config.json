@@ -1,0 +1,101 @@
+{
+  "title": "Natasya & Iskandar",
+  "eventTitle": "WALIMATUL URUS",
+  "bride": {
+    "fullName": "Nurul Natasya Binti Mansor",
+    "shortName": "Natasya",
+    "parents": "Mansor bin Din & Sofiah binti Ahmad"
+  },
+  "groom": {
+    "fullName": "Muhammad Iskandar Bin Hassan",
+    "shortName": "Iskandar"
+  },
+  "event": {
+    "date": "06 Disember 2025",
+    "dateEnglish": "Saturday, 6 December 2025",
+    "startTime": "12:00 Tengah hari",
+    "endTime": "5:00 Petang",
+    "timeFormatted": "Sabtu, 6 Disember 2025 | 12:00 Tengah hari - 5:00 Petang"
+  },
+  "location": {
+    "venue": "Dewan Desa Keda Singkir",
+    "address": "06900 Yan, Kedah",
+    "fullAddress": "Dewan Desa Keda Singkir, 06900 Yan, Kedah",
+    "googleMapsUrl": "https://maps.app.goo.gl/6RPhepYDJqBr3jVs8",
+    "wazeUrl": "https://waze.com/ul/hw1p2s3y0k"
+  },
+  "contacts": [
+    {
+      "name": "Mansor",
+      "title": "Ayah",
+      "phone": "+60196062435"
+    },
+    {
+      "name": "Sofiah",
+      "title": "Ibu",
+      "phone": "+60195354802"
+    },
+    {
+      "name": "Anisha",
+      "title": "Adik",
+      "phone": "+60175644808"
+    }
+  ],
+  "theme": {
+    "colors": {
+      "primary": "#1a365d",
+      "secondary": "#2b579a",
+      "tertiary": "#2d4a6d",
+      "text": "#0a1526",
+      "lightText": "#4a5568"
+    },
+    "fonts": {
+      "primary": {
+        "fontFamily": "\"Quintessential\", serif"
+      },
+      "secondary": {
+        "fontFamily": "\"Domine\", serif",
+        "fontSize": "1rem"
+      },
+      "sansSerif": {
+        "fontFamily": "\"Roboto\", sans-serif",
+        "fontSize": "1rem"
+      },
+      "serif": {
+        "fontFamily": "\"Playfair Display\", serif",
+        "fontSize": "1rem",
+        "fontWeight": 500
+      },
+      "altSerif": {
+        "fontFamily": "\"Cormorant Garamond\", serif",
+        "fontSize": "1rem",
+        "fontWeight": 500
+      },
+      "cursive": {
+        "fontFamily": "\"Parisienne\", cursive",
+        "fontSize": "1rem",
+        "fontWeight": 400
+      }
+    },
+    "sizes": {
+      "titleFontSize": "2.5rem",
+      "nameFontSize": "4rem",
+      "ampersandFontSize": "1.5rem",
+      "dateFontSize": "1.5rem",
+      "venueFontSize": "1.4rem",
+      "eventTitleFontSize": "1.25rem",
+      "guestNameFontSize": "2.0rem",
+      "sectionTitleFontSize": "1.0rem"
+    }
+  },
+  "backgroundImages": {
+    "upper": "background_1.png",
+    "lower": "background_2.png"
+  },
+  "invitation": {
+    "opening": "Dengan penuh kesyukuran ke hadrat ilahi, Kami menjemput ke majlis perkahwinan puteri kami yang dikasihi",
+    "relationship": "Dengan Pasangannya",
+    "venueLabel": "Bertempat di",
+    "contactLabel": "Hubungi"
+  }
+}

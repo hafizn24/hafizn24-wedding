@@ -1,51 +1,17 @@
-import { useState } from 'react'
-import { createTheme } from '@mui/material/styles';
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import WeddingInvitation from './WeddingInvitation';
-
-import { ThemeProvider, CssBaseline, } from '@mui/material';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import InvitationPage from './pages/InvitationPage';
+import NotFoundPage from './pages/NotFoundPage';
 
 function App() {
-
-  const theme = createTheme({
-    typography: {
-      fontFamily: '"Quintessential", serif',
-      allVariants: {
-        color: 'rgba(45, 46, 12, 0.87)',
-      },
-      secondaryFont: {
-        fontFamily: '"Domine", serif',
-        fontSize: '1rem',
-      },
-      sansSerifFont: {
-        fontFamily: '"Roboto", sans-serif',
-        fontSize: '1rem',
-      },
-      serifFont: {
-        fontFamily: '"Playfair Display", serif',
-        fontSize: '1rem',
-        fontWeight: 500
-      },
-      altSerifFont: {
-        fontFamily: '"Cormorant Garamond", serif',
-        fontSize: '1rem',
-        fontWeight: 500
-      },
-      cursiveFont: {
-        fontFamily: '"Parisienne", cursive',
-        fontSize: '1rem',
-        fontWeight: 400
-      }
-    },
-  });
-
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <WeddingInvitation />
-    </ThemeProvider >
-  )
+    <Router>
+      <Routes>
+        <Route path="/:slug" element={<InvitationPage />} />
+        <Route path="/" element={<NotFoundPage />} />
+        <Route path="*" element={<NotFoundPage />} />
+      </Routes>
+    </Router>
+  );
 }
 
-export default App
+export default App;

@@ -1,7 +1,7 @@
 import { Card, CardContent, Typography, Box, IconButton, Divider } from "@mui/material";
 import { Phone, WhatsApp } from "@mui/icons-material";
 
-function PhoneContact() {
+function PhoneContact({ contacts = [] }) {
   const handleCall = (phoneNumber) => {
     window.open(`tel:${phoneNumber}`);
   };
@@ -9,24 +9,6 @@ function PhoneContact() {
   const handleWhatsApp = (phoneNumber) => {
     window.open(`https://wa.me/${phoneNumber.replace(/[^0-9]/g, '')}`);
   };
-
-  const contacts = [
-    {
-      name: 'Mansor',
-      title: 'Ayah',
-      phone: '+60196062435'
-    },
-    {
-      name: 'Sofiah',
-      title: 'Ibu',
-      phone: '+60195354802'
-    },
-    {
-      name: 'Anisha',
-      title: 'Adik',
-      phone: '+60175644808'
-    }
-  ];
 
   return (
     <Card
@@ -102,49 +84,42 @@ function PhoneContact() {
                     </Typography>
                   </Typography>
                 </Box>
-                <Box sx={{ display: 'flex', gap: 1 }}>
+
+                <Box sx={{ display: 'flex', gap: 0.5 }}>
                   <IconButton
                     onClick={() => handleCall(contact.phone)}
+                    size="small"
                     sx={{
-                      color: '#2d4a6d',
-                      border: '1px solid rgba(45, 74, 109, 0.3)',
-                      padding: '6px',
+                      color: '#4a5568',
+                      border: '1px solid rgba(74, 85, 104, 0.2)',
                       transition: 'all 0.2s ease',
                       '&:hover': {
-                        backgroundColor: 'rgba(45, 74, 109, 0.04)',
-                        border: '1px solid rgba(45, 74, 109, 0.5)'
+                        backgroundColor: 'rgba(74, 85, 104, 0.05)',
+                        border: '1px solid rgba(74, 85, 104, 0.4)'
                       }
                     }}
-                    size="small"
                   >
-                    <Phone sx={{ fontSize: '1rem' }} />
+                    <Phone sx={{ fontSize: '1.1rem' }} />
                   </IconButton>
                   <IconButton
                     onClick={() => handleWhatsApp(contact.phone)}
+                    size="small"
                     sx={{
-                      color: '#075E54',
-                      border: '1px solid rgba(7, 94, 84, 0.3)',
-                      padding: '6px',
+                      color: '#25d366',
+                      border: '1px solid rgba(37, 211, 102, 0.3)',
                       transition: 'all 0.2s ease',
                       '&:hover': {
-                        backgroundColor: 'rgba(7, 94, 84, 0.04)',
-                        border: '1px solid rgba(7, 94, 84, 0.5)'
+                        backgroundColor: 'rgba(37, 211, 102, 0.05)',
+                        border: '1px solid rgba(37, 211, 102, 0.5)'
                       }
                     }}
-                    size="small"
                   >
-                    <WhatsApp sx={{ fontSize: '1rem' }} />
+                    <WhatsApp sx={{ fontSize: '1.1rem' }} />
                   </IconButton>
                 </Box>
               </Box>
               {index < contacts.length - 1 && (
-                <Divider
-                  sx={{
-                    mt: 2,
-                    opacity: 0.1,
-                    borderColor: 'rgba(45, 74, 109, 0.3)'
-                  }}
-                />
+                <Divider sx={{ my: 1.5, opacity: 0.3 }} />
               )}
             </Box>
           ))}

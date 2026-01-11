@@ -1,0 +1,9 @@
+{
+  "invitations": [
+    {
+      "slug": "natasya-iskandar",
+      "title": "Natasya & Iskandar",
+      "configFile": "natasya-iskandar.config.json"
+    }
+  ]
+}
