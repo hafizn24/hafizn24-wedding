@@ -3,7 +3,8 @@
     {
       "slug": "natasya-iskandar",
       "title": "Natasya & Iskandar",
-      "configFile": "natasya-iskandar.config.json"
+      "configFile": "natasya-iskandar.config.json",
+      "themeId": 1
     }
   ]
 }
