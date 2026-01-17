@@ -6,7 +6,7 @@
 export const loadInvitationConfig = async (slug) => {
   try {
     // First, load the main invitations config to validate the slug
-    const invitationsResponse = await fetch('/src/config/invitations.config.json');
+    const invitationsResponse = await fetch('/config/invitations.config.json');
     if (!invitationsResponse.ok) {
       throw new Error('Failed to load invitations list');
     }
@@ -19,7 +19,7 @@ export const loadInvitationConfig = async (slug) => {
     }
 
     // Load the specific invitation config
-    const configResponse = await fetch(`/src/config/${invitation.configFile}`);
+    const configResponse = await fetch(`/config/${invitation.configFile}`);
     if (!configResponse.ok) {
       throw new Error(`Failed to load config for slug "${slug}"`);
     }
@@ -38,7 +38,7 @@ export const loadInvitationConfig = async (slug) => {
  */
 export const getAllInvitations = async () => {
   try {
-    const response = await fetch('/src/config/invitations.config.json');
+    const response = await fetch('/config/invitations.config.json');
     if (!response.ok) {
       throw new Error('Failed to load invitations list');
     }
