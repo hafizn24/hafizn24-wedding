@@ -50,7 +50,41 @@ function WeddingInvitationTemplate({ config }) {
   };
 
   return (
-    <>
+    <Box
+      sx={{
+        width: '100%',
+        minHeight: '100vh',
+        backgroundImage: `url('${backgroundImages.upper}')`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundAttachment: 'fixed',
+        display: 'flex',
+        justifyContent: 'center',
+      }}
+    >
+      <Box
+        sx={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          backgroundColor: 'rgba(0,0,0,0.6)',
+          backdropFilter: 'blur(8px)',
+          zIndex: 0,
+        }}
+      />
+      <Box
+        sx={{
+          width: '100%',
+          maxWidth: '414px', // 1242px / 3
+          bgcolor: '#fff',
+          minHeight: '100vh',
+          boxShadow: '0 0 20px rgba(0,0,0,0.5)',
+          position: 'relative',
+          zIndex: 1,
+        }}
+      >
       {/* Upper Section */}
       <Box
         sx={{
@@ -137,7 +171,8 @@ function WeddingInvitationTemplate({ config }) {
       >
         <Page2 config={config} />
       </Box>
-    </>
+      </Box>
+    </Box>
   );
 }
 
