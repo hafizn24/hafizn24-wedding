@@ -1,9 +1,15 @@
 import React, { useRef } from 'react';
-import { Box, Typography, IconButton } from '@mui/material';
+import { Box, IconButton } from '@mui/material';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
-import { FaGoogle } from 'react-icons/fa';
-import { FaWaze } from 'react-icons/fa6';
-import PhoneContact from './PhoneContact';
+
+import CoupleNamesCard from './invitation-component/CoupleNamesCard/CoupleNamesCard';
+import EventDateVenueCard from './invitation-component/EventDateVenueCard/EventDateVenueCard';
+import EventDetailsSection from './invitation-component/EventDetailsSection/EventDetailsSection';
+import EventTitle from './invitation-component/EventTitle/EventTitle';
+import FullNamesSection from './invitation-component/FullNamesSection/FullNamesSection';
+import NavigationButtons from './invitation-component/NavigationButtons/NavigationButtons';
+import ParentsInvitationCard from './invitation-component/ParentsInvitationCard/ParentsInvitationCard';
+import PhoneContact from './invitation-component/PhoneContact/PhoneContact';
 
 function WeddingInvitationTemplate({ config }) {
   const lowerRef = useRef(null);
@@ -76,89 +82,28 @@ function WeddingInvitationTemplate({ config }) {
         }}
       >
         <Box>
-          <Typography
-            sx={(theme) => ({
-              ...fonts.serif,
-              color: colors.primary,
-              letterSpacing: '3px',
-              textTransform: 'uppercase',
-              mb: 3,
-              fontSize: sizes.titleFontSize,
-            })}
-          >
-            {eventTitle}
-          </Typography>
+          <EventTitle 
+            eventTitle={eventTitle}
+            fonts={fonts}
+            colors={colors}
+            sizes={sizes}
+          />
 
-          <Box sx={{ m: 3 }}>
-            <Typography
-              sx={(theme) => ({
-                ...fonts.cursive,
-                color: colors.secondary,
-                fontSize: sizes.nameFontSize,
-              })}
-            >
-              {bride.shortName}
-            </Typography>
-            <Typography
-              sx={(theme) => ({
-                ...fonts.serif,
-                color: colors.lightText,
-                my: 1.5,
-                letterSpacing: '4px',
-                textTransform: 'uppercase',
-                fontSize: sizes.ampersandFontSize,
-              })}
-            >
-              &
-            </Typography>
-            <Typography
-              sx={(theme) => ({
-                ...fonts.cursive,
-                color: colors.secondary,
-                fontSize: sizes.nameFontSize,
-              })}
-            >
-              {groom.shortName}
-            </Typography>
-          </Box>
+          <CoupleNamesCard
+            bride={bride}
+            groom={groom}
+            fonts={fonts}
+            colors={colors}
+            sizes={sizes}
+          />
 
-          <Typography
-            sx={(theme) => ({
-              ...fonts.altSerif,
-              color: colors.tertiary,
-              fontSize: sizes.dateFontSize,
-              mb: 3,
-              mt: 1,
-              letterSpacing: '1px',
-            })}
-          >
-            {event.date}
-          </Typography>
-
-          <Box sx={{ m: 3 }}>
-            <Typography
-              sx={(theme) => ({
-                ...fonts.altSerif,
-                fontSize: sizes.venueFontSize,
-                color: colors.tertiary,
-                lineHeight: 1.0,
-                letterSpacing: '0.5px'
-              })}
-            >
-              {location.venue}
-            </Typography>
-            <Typography
-              sx={(theme) => ({
-                ...fonts.altSerif,
-                fontSize: sizes.venueFontSize,
-                color: colors.tertiary,
-                lineHeight: 1.1,
-                letterSpacing: '0.5px'
-              })}
-            >
-              {location.address}
-            </Typography>
-          </Box>
+          <EventDateVenueCard
+            event={event}
+            location={location}
+            fonts={fonts}
+            colors={colors}
+            sizes={sizes}
+          />
 
           <IconButton
             onClick={scrollToLower}
@@ -204,156 +149,35 @@ function WeddingInvitationTemplate({ config }) {
           zIndex: 1,
         }}
       >
-        <Box sx={{ m: 2 }}>
-          <Typography
-            sx={(theme) => ({
-              ...fonts.serif,
-              color: colors.primary,
-              mb: 2,
-              fontSize: sizes.eventTitleFontSize,
-            })}
-          >
-            {bride.parents}
-          </Typography>
+        <ParentsInvitationCard
+          bride={bride}
+          invitation={invitation}
+          fonts={fonts}
+          colors={colors}
+          sizes={sizes}
+        />
 
-          <Typography
-            sx={(theme) => ({
-              ...fonts.altSerif,
-              color: colors.lightText,
-              lineHeight: 1.0,
-              letterSpacing: '0.5px',
-              m: 3,
-              fontSize: '1.0rem',
-            })}
-          >
-            {invitation.opening}
-          </Typography>
-        </Box>
+        <FullNamesSection
+          bride={bride}
+          groom={groom}
+          invitation={invitation}
+          fonts={fonts}
+          colors={colors}
+          sizes={sizes}
+        />
 
-        <Box sx={{ mb: 2 }}>
-          <Typography
-            sx={(theme) => ({
-              ...fonts.cursive,
-              color: colors.secondary,
-              mb: 1,
-              fontSize: sizes.guestNameFontSize,
-            })}
-          >
-            {bride.fullName}
-          </Typography>
+        <EventDetailsSection
+          event={event}
+          location={location}
+          invitation={invitation}
+          fonts={fonts}
+          colors={colors}
+        />
 
-          <Typography
-            sx={(theme) => ({
-              ...fonts.altSerif,
-              color: colors.lightText,
-              my: 1.8,
-              letterSpacing: '3px',
-              textTransform: 'uppercase',
-              fontSize: '0.8rem',
-            })}
-          >
-            {invitation.relationship}
-          </Typography>
-
-          <Typography
-            sx={(theme) => ({
-              ...fonts.cursive,
-              color: colors.secondary,
-              mb: 2,
-              fontSize: sizes.guestNameFontSize,
-            })}
-          >
-            {groom.fullName}
-          </Typography>
-        </Box>
-
-        <Box sx={{ mb: 2 }}>
-          <Typography
-            sx={(theme) => ({
-              ...fonts.altSerif,
-              color: colors.tertiary,
-              mb: 1,
-              letterSpacing: '0.8px',
-              lineHeight: 1.2,
-              fontSize: '1.0rem',
-            })}
-          >
-            {event.timeFormatted}
-          </Typography>
-
-          <Typography
-            sx={(theme) => ({
-              ...fonts.serif,
-              color: colors.lightText,
-              mt: 3,
-              mb: 1,
-              letterSpacing: '3px',
-              textTransform: 'uppercase',
-              fontSize: '1.0rem',
-            })}
-          >
-            {invitation.venueLabel}
-          </Typography>
-
-          <Typography
-            sx={(theme) => ({
-              ...fonts.altSerif,
-              color: colors.tertiary,
-              letterSpacing: '0.5px',
-              lineHeight: 1.0,
-              mb: 3,
-              fontSize: '1.0rem',
-            })}
-          >
-            {location.fullAddress}
-          </Typography>
-        </Box>
-
-        <Box
-          sx={{
-            display: "flex",
-            justifyContent: "center",
-            gap: 1,
-            width: '100%',
-            mb: 2
-          }}
-        >
-          <IconButton
-            onClick={() =>
-              window.open(location.googleMapsUrl, "_blank")
-            }
-            sx={{
-              color: colors.tertiary,
-              padding: '12px',
-              border: `1px solid rgba(${parseInt(colors.tertiary.slice(1, 3), 16)}, ${parseInt(colors.tertiary.slice(3, 5), 16)}, ${parseInt(colors.tertiary.slice(5, 7), 16)}, 0.3)`,
-              transition: 'all 0.2s ease',
-              '&:hover': {
-                backgroundColor: `rgba(${parseInt(colors.tertiary.slice(1, 3), 16)}, ${parseInt(colors.tertiary.slice(3, 5), 16)}, ${parseInt(colors.tertiary.slice(5, 7), 16)}, 0.04)`,
-                border: `1px solid rgba(${parseInt(colors.tertiary.slice(1, 3), 16)}, ${parseInt(colors.tertiary.slice(3, 5), 16)}, ${parseInt(colors.tertiary.slice(5, 7), 16)}, 0.5)`
-              }
-            }}
-          >
-            <FaGoogle style={{ fontSize: 32 }} />
-          </IconButton>
-
-          <IconButton
-            onClick={() =>
-              window.open(location.wazeUrl, "_blank")
-            }
-            sx={{
-              color: '#0a7aa6',
-              padding: '12px',
-              border: '1px solid rgba(10, 122, 166, 0.3)',
-              transition: 'all 0.2s ease',
-              '&:hover': {
-                backgroundColor: 'rgba(10, 122, 166, 0.04)',
-                border: '1px solid rgba(10, 122, 166, 0.5)'
-              }
-            }}
-          >
-            <FaWaze style={{ fontSize: 32 }} />
-          </IconButton>
-        </Box>
+        <NavigationButtons
+          location={location}
+          colors={colors}
+        />
 
         <Box sx={{ display: 'flex', gap: 2 }}>
           <PhoneContact contacts={contacts} />
