@@ -1,10 +1,14 @@
 {
   "invitations": [
     {
-      "slug": "natasya-iskandar",
+      "slug": "sample-1",
       "title": "Natasya & Iskandar",
-      "configFile": "natasya-iskandar.config.json",
-      "themeId": 1
+      "configFile": "sample-theme-1.config.json"
+    },
+    {
+      "slug": "sample-2",
+      "title": "Sample & Partner",
+      "configFile": "sample-theme-2.config.json"
     }
   ]
 }

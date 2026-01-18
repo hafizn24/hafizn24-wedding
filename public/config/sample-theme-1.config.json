@@ -89,8 +89,8 @@
     }
   },
   "backgroundImages": {
-    "upper": "theme-1/theme-1-upper.png",
-    "lower": "theme-1/theme-1-lower.png"
+    "upper": "theme/theme-1/theme-1-upper.png",
+    "lower": "theme/theme-1/theme-1-lower.png"
   },
   "invitation": {
     "opening": "Dengan penuh kesyukuran ke hadrat ilahi, Kami menjemput ke majlis perkahwinan puteri kami yang dikasihi",

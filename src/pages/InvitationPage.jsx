@@ -30,11 +30,7 @@ function InvitationPage() {
         document.title = loadedConfig.title;
       } catch (err) {
         console.error('Error loading invitation:', err);
-        setError(err.message);
-        // Redirect to home if config not found
-        setTimeout(() => {
-          navigate('/');
-        }, 2000);
+        navigate('/404', { replace: true });
       } finally {
         setLoading(false);
       }
