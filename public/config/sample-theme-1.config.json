@@ -42,60 +42,23 @@
     }
   ],
   "theme": {
-    "colors": {
-      "primary": "#1a365d",
-      "secondary": "#2b579a",
-      "tertiary": "#2d4a6d",
-      "text": "#0a1526",
-      "lightText": "#4a5568"
-    },
-    "fonts": {
-      "primary": {
-        "fontFamily": "\"Quintessential\", serif"
-      },
-      "secondary": {
-        "fontFamily": "\"Domine\", serif",
-        "fontSize": "1rem"
-      },
-      "sansSerif": {
-        "fontFamily": "\"Roboto\", sans-serif",
-        "fontSize": "1rem"
-      },
-      "serif": {
-        "fontFamily": "\"Playfair Display\", serif",
-        "fontSize": "1rem",
-        "fontWeight": 500
-      },
-      "altSerif": {
-        "fontFamily": "\"Cormorant Garamond\", serif",
-        "fontSize": "1rem",
-        "fontWeight": 500
-      },
-      "cursive": {
-        "fontFamily": "\"Parisienne\", cursive",
-        "fontSize": "1rem",
-        "fontWeight": 400
-      }
-    },
-    "sizes": {
-      "titleFontSize": "2.5rem",
-      "nameFontSize": "4rem",
-      "ampersandFontSize": "1.5rem",
-      "dateFontSize": "1.5rem",
-      "venueFontSize": "1.4rem",
-      "eventTitleFontSize": "1.25rem",
-      "guestNameFontSize": "2.0rem",
-      "sectionTitleFontSize": "1.0rem"
-    }
+    "id": "theme-1"
   },
-  "backgroundImages": {
-    "upper": "theme/theme-1/theme-1-upper.png",
-    "lower": "theme/theme-1/theme-1-lower.png"
-  },
+  "themeName": "theme-1",
   "invitation": {
     "opening": "Dengan penuh kesyukuran ke hadrat ilahi, Kami menjemput ke majlis perkahwinan puteri kami yang dikasihi",
     "relationship": "Dengan Pasangannya",
     "venueLabel": "Bertempat di",
     "contactLabel": "Hubungi"
+  },
+  "variant":{
+    "CoupleNamesCard":"variant-1",
+    "EventDateVenueCard":"variant-1",
+    "EventDetailsSection":"variant-1",
+    "EventTitle":"variant-1",
+    "FullNamesSection":"variant-1",
+    "NavigationButtons":"variant-1",
+    "ParentsInvitationCard":"variant-1",
+    "PhoneContact":"variant-1"
   }
 }
