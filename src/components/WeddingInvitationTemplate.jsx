@@ -1,18 +1,21 @@
 import React, { useRef } from 'react';
 import { Box, IconButton } from '@mui/material';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
-
-import CoupleNamesCard from './invitation-component/CoupleNamesCard/CoupleNamesCard';
-import EventDateVenueCard from './invitation-component/EventDateVenueCard/EventDateVenueCard';
-import EventDetailsSection from './invitation-component/EventDetailsSection/EventDetailsSection';
-import EventTitle from './invitation-component/EventTitle/EventTitle';
-import FullNamesSection from './invitation-component/FullNamesSection/FullNamesSection';
-import NavigationButtons from './invitation-component/NavigationButtons/NavigationButtons';
-import ParentsInvitationCard from './invitation-component/ParentsInvitationCard/ParentsInvitationCard';
-import PhoneContact from './invitation-component/PhoneContact/PhoneContact';
+import { getTheme } from '../theme/theme';
+import Page1 from './invitation-component/Page1';
+import Page2 from './invitation-component/Page2';
 
 function WeddingInvitationTemplate({ config }) {
   const lowerRef = useRef(null);
+  const { themeName, theme } = config;
+  const themeData = getTheme(themeName);
+  const themeColors = themeData.colors;
+
+  const themeId = theme?.id || themeName;
+  const backgroundImages = {
+    upper: `theme/${themeId}/first.png`,
+    lower: `theme/${themeId}/second.png`,
+  };
 
   const scrollToLower = () => {
     const element = lowerRef.current;
@@ -45,25 +48,8 @@ function WeddingInvitationTemplate({ config }) {
     requestAnimationFrame(animateScroll);
   };
 
-  const { theme, bride, groom, event, location, invitation, backgroundImages, eventTitle, contacts } = config;
-  const { colors, fonts, sizes } = theme;
-
   return (
     <>
-      <Box
-        sx={{
-          position: "fixed",
-          top: 0,
-          left: 0,
-          width: "100%",
-          height: "100%",
-          backgroundImage: `url('${backgroundImages.lower}')`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-        }}
-      />
-
       {/* Upper Section */}
       <Box
         sx={{
@@ -82,34 +68,12 @@ function WeddingInvitationTemplate({ config }) {
         }}
       >
         <Box>
-          <EventTitle 
-            eventTitle={eventTitle}
-            fonts={fonts}
-            colors={colors}
-            sizes={sizes}
-          />
-
-          <CoupleNamesCard
-            bride={bride}
-            groom={groom}
-            fonts={fonts}
-            colors={colors}
-            sizes={sizes}
-          />
-
-          <EventDateVenueCard
-            event={event}
-            location={location}
-            fonts={fonts}
-            colors={colors}
-            sizes={sizes}
-          />
-
+          <Page1 config={config} />
           <IconButton
             onClick={scrollToLower}
             sx={{
-              color: colors.tertiary,
-              border: `1px solid rgba(${parseInt(colors.tertiary.slice(1, 3), 16)}, ${parseInt(colors.tertiary.slice(3, 5), 16)}, ${parseInt(colors.tertiary.slice(5, 7), 16)}, 0.2)`,
+              color: themeColors.primary,
+              border: `1px solid rgba(${parseInt(themeColors.primary.slice(1, 3), 16)}, ${parseInt(themeColors.primary.slice(3, 5), 16)}, ${parseInt(themeColors.primary.slice(5, 7), 16)}, 0.2)`,
               padding: '12px',
               transition: 'all 0.4s ease',
               animation: 'float 2s ease-in-out infinite',
@@ -122,8 +86,8 @@ function WeddingInvitationTemplate({ config }) {
                 },
               },
               '&:hover': {
-                background: `rgba(${parseInt(colors.tertiary.slice(1, 3), 16)}, ${parseInt(colors.tertiary.slice(3, 5), 16)}, ${parseInt(colors.tertiary.slice(5, 7), 16)}, 0.04)`,
-                border: `1px solid rgba(${parseInt(colors.tertiary.slice(1, 3), 16)}, ${parseInt(colors.tertiary.slice(3, 5), 16)}, ${parseInt(colors.tertiary.slice(5, 7), 16)}, 0.4)`,
+                background: `rgba(${parseInt(themeColors.primary.slice(1, 3), 16)}, ${parseInt(themeColors.primary.slice(3, 5), 16)}, ${parseInt(themeColors.primary.slice(5, 7), 16)}, 0.04)`,
+                border: `1px solid rgba(${parseInt(themeColors.primary.slice(1, 3), 16)}, ${parseInt(themeColors.primary.slice(3, 5), 16)}, ${parseInt(themeColors.primary.slice(5, 7), 16)}, 0.4)`,
                 transform: 'translateY(5px)'
               }
             }}
@@ -138,6 +102,10 @@ function WeddingInvitationTemplate({ config }) {
         ref={lowerRef}
         sx={{
           minHeight: "100vh",
+          backgroundImage: `url('${backgroundImages.lower}')`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
@@ -149,39 +117,7 @@ function WeddingInvitationTemplate({ config }) {
           zIndex: 1,
         }}
       >
-        <ParentsInvitationCard
-          bride={bride}
-          invitation={invitation}
-          fonts={fonts}
-          colors={colors}
-          sizes={sizes}
-        />
-
-        <FullNamesSection
-          bride={bride}
-          groom={groom}
-          invitation={invitation}
-          fonts={fonts}
-          colors={colors}
-          sizes={sizes}
-        />
-
-        <EventDetailsSection
-          event={event}
-          location={location}
-          invitation={invitation}
-          fonts={fonts}
-          colors={colors}
-        />
-
-        <NavigationButtons
-          location={location}
-          colors={colors}
-        />
-
-        <Box sx={{ display: 'flex', gap: 2 }}>
-          <PhoneContact contacts={contacts} />
-        </Box>
+        <Page2 config={config} />
       </Box>
     </>
   );

@@ -1,16 +1,14 @@
 import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { Box, CircularProgress, Typography } from '@mui/material';
+import { Box, CircularProgress, Typography, createTheme } from '@mui/material';
 import { ThemeProvider, CssBaseline } from '@mui/material';
 import WeddingInvitationTemplate from '../components/WeddingInvitationTemplate';
 import { loadInvitationConfig } from '../utils/configLoader';
-import { createInvitationTheme } from '../utils/themeFactory';
 
 function InvitationPage() {
   const { slug } = useParams();
   const navigate = useNavigate();
   const [config, setConfig] = useState(null);
-  const [theme, setTheme] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -22,10 +20,6 @@ function InvitationPage() {
         const loadedConfig = await loadInvitationConfig(slug);
         setConfig(loadedConfig);
         
-        // Create theme from config
-        const generatedTheme = createInvitationTheme(loadedConfig);
-        setTheme(generatedTheme);
-
         // Update document title
         document.title = loadedConfig.title;
       } catch (err) {
@@ -79,9 +73,11 @@ function InvitationPage() {
     );
   }
 
-  if (!config || !theme) {
+  if (!config) {
     return null;
   }
+
+  const theme = createTheme();
 
   return (
     <ThemeProvider theme={theme}>

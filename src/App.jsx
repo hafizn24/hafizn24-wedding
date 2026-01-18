@@ -1,15 +1,14 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import InvitationPage from './pages/InvitationPage';
 import NotFoundPage from './pages/NotFoundPage';
-import Home from './pages/Home';
 
 function App() {
   return (
     <Router>
       <Routes>
         <Route path="/:slug" element={<InvitationPage />} />
-        <Route path="/" element={<Home />} />
-        <Route path="*" element={<Home />} />
+        <Route path="/" element={<NotFoundPage />} />
+        <Route path="*" element={<NotFoundPage />} />
         <Route path="/404" element={<NotFoundPage />} />
       </Routes>
     </Router>

@@ -1,13 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Parisienne&family=Playfair+Display:wght@400..600&family=Cormorant+Garamond:wght@400..600&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400&family=Great+Vibes&family=Lora:wght@500&family=Merriweather:wght@300;400;700&family=Open+Sans:wght@300;400;600&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500&display=swap');
 
-.font-serif { font-family: "Playfair Display", serif; }
-.font-accent { font-family: "Cormorant Garamond", serif; }
-.font-sans { font-family: "Inter", sans-serif; }
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Cormorant+Garamond:wght@400;600;700&family=Parisienne:wght@400&family=Great+Vibes&family=Merriweather:wght@400;700&family=Open+Sans:wght@400;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 html, body, #root {
   margin: 0;
   padding: 0;
   height: 100%;
+  width: 100%;
+  font-family: 'Merriweather', serif;
 }
