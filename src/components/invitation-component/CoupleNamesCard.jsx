@@ -5,7 +5,7 @@ import { getTheme } from '../../theme/theme';
 function CoupleNamesCard({ config }) {
   const { bride, groom, themeName, variant } = config;
   const theme = getTheme(themeName);
-  
+
   const styles = theme.components.CoupleNamesCard[variant.CoupleNamesCard];
 
   return (

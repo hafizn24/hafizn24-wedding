@@ -52,13 +52,13 @@
     "contactLabel": "Hubungi"
   },
   "variant":{
-    "CoupleNamesCard":"variant-1",
-    "EventDateVenueCard":"variant-1",
-    "EventDetailsSection":"variant-1",
-    "EventTitle":"variant-1",
-    "FullNamesSection":"variant-1",
-    "NavigationButtons":"variant-1",
-    "ParentsInvitationCard":"variant-1",
-    "PhoneContact":"variant-1"
+    "CoupleNamesCard":"variant1",
+    "EventDateVenueCard":"variant1",
+    "EventDetailsSection":"variant1",
+    "EventTitle":"variant1",
+    "FullNamesSection":"variant1",
+    "NavigationButtons":"variant1",
+    "ParentsInvitationCard":"variant1",
+    "PhoneContact":"variant1"
   }
 }
