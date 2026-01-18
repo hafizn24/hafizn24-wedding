@@ -2,27 +2,19 @@ import React, { useRef } from 'react';
 import { Box, IconButton } from '@mui/material';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import { getTheme } from '../theme/theme';
-
-import CoupleNamesCard from './invitation-component/CoupleNamesCard';
-import EventDateVenueCard from './invitation-component/EventDateVenueCard';
-import EventDetailsSection from './invitation-component/EventDetailsSection';
-import EventTitle from './invitation-component/EventTitle';
-import FullNamesSection from './invitation-component/FullNamesSection';
-import NavigationButtons from './invitation-component/NavigationButtons';
-import ParentsInvitationCard from './invitation-component/ParentsInvitationCard';
-import PhoneContact from './invitation-component/PhoneContact';
+import Page1 from './invitation-component/Page1';
+import Page2 from './invitation-component/Page2';
 
 function WeddingInvitationTemplate({ config }) {
   const lowerRef = useRef(null);
   const { themeName, theme } = config;
   const themeData = getTheme(themeName);
   const themeColors = themeData.colors;
-  
-  // Get background images based on theme ID
+
   const themeId = theme?.id || themeName;
   const backgroundImages = {
-    upper: `theme/${themeId}/${themeId}-upper.png`,
-    lower: `theme/${themeId}/${themeId}-lower.png`,
+    upper: `theme/${themeId}/first.png`,
+    lower: `theme/${themeId}/second.png`,
   };
 
   const scrollToLower = () => {
@@ -58,20 +50,6 @@ function WeddingInvitationTemplate({ config }) {
 
   return (
     <>
-      <Box
-        sx={{
-          position: "fixed",
-          top: 0,
-          left: 0,
-          width: "100%",
-          height: "100%",
-          backgroundImage: `url('${backgroundImages.lower}')`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-        }}
-      />
-
       {/* Upper Section */}
       <Box
         sx={{
@@ -90,12 +68,7 @@ function WeddingInvitationTemplate({ config }) {
         }}
       >
         <Box>
-          <EventTitle config={config} />
-
-          <CoupleNamesCard config={config} />
-
-          <EventDateVenueCard config={config} />
-
+          <Page1 config={config} />
           <IconButton
             onClick={scrollToLower}
             sx={{
@@ -129,6 +102,10 @@ function WeddingInvitationTemplate({ config }) {
         ref={lowerRef}
         sx={{
           minHeight: "100vh",
+          backgroundImage: `url('${backgroundImages.lower}')`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
@@ -140,17 +117,7 @@ function WeddingInvitationTemplate({ config }) {
           zIndex: 1,
         }}
       >
-        <ParentsInvitationCard config={config} />
-
-        <FullNamesSection config={config} />
-
-        <EventDetailsSection config={config} />
-
-        <NavigationButtons config={config} />
-
-        <Box sx={{ display: 'flex', gap: 2 }}>
-          <PhoneContact config={config} />
-        </Box>
+        <Page2 config={config} />
       </Box>
     </>
   );
