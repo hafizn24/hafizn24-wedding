@@ -1,12 +1,12 @@
 {
   "themeName": "theme-1",
   "title": "Natasya & Iskandar",
-  "bride": {
+  "person1": {
     "fullName": "Nurul Natasya Binti Mansor",
     "shortName": "Natasya",
     "parents": "Mansor bin Din & Sofiah binti Ahmad"
   },
-  "groom": {
+  "person2": {
     "fullName": "Muhammad Iskandar Bin Hassan",
     "shortName": "Iskandar"
   },

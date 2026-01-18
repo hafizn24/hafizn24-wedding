@@ -2,6 +2,8 @@ import React from 'react'
 import { Typography, Box } from '@mui/material'
 import { getTheme } from '../../theme/theme'
 import PhoneContact from './PhoneContact'
+import { FaGoogle } from "react-icons/fa";
+import { FaWaze } from "react-icons/fa6";
 
 function Page2({ config }) {
   const themeData = getTheme(config.themeName)
@@ -9,155 +11,191 @@ function Page2({ config }) {
   const themeFonts = themeData.fonts
 
   return (
-    <Box sx={{ textAlign: 'center', maxWidth: '600px', mx: 'auto' }}>
+    <Box sx={{ textAlign: 'center', maxWidth: '600px', mx: 'auto', px: 2 }}>
+      {/* Opening line */}
       <Typography
-        variant="body1"
+        variant="h4"
         sx={{
           fontFamily: themeFonts.secondary,
           color: themeColors.lightText,
-          fontSize: '0.9rem',
-          marginBottom: 1,
+          fontSize: '2rem',
+          mb: 3, // consistent spacing
+          fontWeight: 600,
+          letterSpacing: '0.05em',
         }}
       >
-        {config.bride.parents}
+        بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ
       </Typography>
 
+      {/* Parents */}
+      <Typography
+        variant="h6"
+        sx={{
+          fontFamily: themeFonts.secondary,
+          color: themeColors.lightText,
+          fontSize: '1.4rem',
+          mb: 3,
+          fontWeight: 600,
+        }}
+      >
+        {config.person1.parents}
+      </Typography>
+
+      {/* Invitation text */}
       <Typography
         variant="body1"
         sx={{
           fontFamily: themeFonts.secondary,
           color: themeColors.text,
           fontSize: '1rem',
-          marginBottom: 3,
-          lineHeight: 1.6,
+          mb: 4,
+          lineHeight: 1.8,
         }}
       >
-        Dengan penuh kesyukuran ke hadrat ilahi, Kami menjemput ke majlis perkahwinan puteri kami yang dikasihi
+        Dengan penuh kesyukuran atas limpah kurnia-Nya,
+        kami sekeluarga menjemput dengan segala hormat ke majlis perkahwinan anakanda kami yang dikasihi.
       </Typography>
 
+      {/* Names */}
       <Typography
         variant="h5"
         sx={{
           fontFamily: themeFonts.primary,
           color: themeColors.primary,
-          fontSize: '1.3rem',
-          marginBottom: 3,
-          fontWeight: 500,
-        }}
-      >
-        {config.bride.fullName}
-        <br />
-        dan
-        <br />
-        {config.groom.fullName}
-      </Typography>
-
-      <Typography
-        variant="body1"
-        sx={{
-          fontFamily: themeFonts.secondary,
-          color: themeColors.text,
-          fontSize: '1rem',
-          marginBottom: 2,
+          fontSize: '1.6rem',
+          mb: 2,
           fontWeight: 600,
+          lineHeight: 1.4,
         }}
       >
-        {config.event.date}
+        {config.person1.fullName}
+        <br />
+        &
+        <br />
+        {config.person2.fullName}
       </Typography>
 
-      <Typography
-        variant="body2"
+      {/* Event Details */}
+      <Box
         sx={{
-          fontFamily: themeFonts.secondary,
-          color: themeColors.lightText,
-          fontSize: '0.95rem',
-          marginBottom: 2,
+          backgroundColor: themeColors.lightBackground,
+          borderRadius: 2,
+          p: 3,
+          mb: 2,
+          textAlign: 'center',
         }}
       >
-        {config.event.startTime} - {config.event.endTime}
-      </Typography>
+        <Typography
+          variant="h6"
+          sx={{
+            fontFamily: themeFonts.primary,
+            color: themeColors.primary,
+            fontSize: '1.3rem',
+            fontWeight: 600,
+            mb: 1.5,
+          }}
+        >
+          {config.event.date}
+        </Typography>
 
-      <Typography
-        variant="h6"
-        sx={{
-          fontFamily: themeFonts.primary,
-          color: themeColors.primary,
-          fontSize: '1.1rem',
-          marginBottom: 1,
-          fontWeight: 500,
-        }}
-      >
-        {config.location.venue}
-      </Typography>
+        <Typography
+          variant="body1"
+          sx={{
+            fontFamily: themeFonts.secondary,
+            color: themeColors.text,
+            fontSize: '1.05rem',
+            mb: 2,
+          }}
+        >
+          {config.event.startTime} – {config.event.endTime}
+        </Typography>
 
-      <Typography
-        variant="body2"
-        sx={{
-          fontFamily: themeFonts.secondary,
-          color: themeColors.lightText,
-          fontSize: '0.9rem',
-          marginBottom: 3,
-        }}
-      >
-        {config.location.fullAddress}
-      </Typography>
+        <Box sx={{ borderTop: `1px solid ${themeColors.border}`, my: 2 }} />
 
-      <Box sx={{ marginBottom: 3 }}>
+        <Typography
+          variant="h6"
+          sx={{
+            fontFamily: themeFonts.primary,
+            color: themeColors.primary,
+            fontSize: '1.2rem',
+            fontWeight: 500,
+            mb: 1.5,
+          }}
+        >
+          {config.location.venue}
+        </Typography>
+
         <Typography
           variant="body2"
           sx={{
             fontFamily: themeFonts.secondary,
-            color: themeColors.text,
-            fontSize: '0.9rem',
-            marginBottom: 1,
+            color: themeColors.lightText,
+            fontSize: '1rem',
+            lineHeight: 1.6,
           }}
         >
-          Lokasi:
+          {config.location.fullAddress}
         </Typography>
-        <Box sx={{ display: 'flex', gap: 1, justifyContent: 'center' }}>
-          <Typography
+      </Box>
+
+      {/* Map Links */}
+      <Box sx={{ mb: 4 }}>
+        <Box sx={{ display: 'flex', gap: 4, justifyContent: 'center' }}>
+          {/* Google Maps */}
+          <Box
             component="a"
             href={config.location.googleMapsUrl}
             target="_blank"
             rel="noopener noreferrer"
             sx={{
-              fontFamily: themeFonts.secondary,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              width: 56,
+              height: 56,
+              borderRadius: '50%',
+              border: `2px solid ${themeColors.secondary}`,
               color: themeColors.secondary,
-              fontSize: '0.85rem',
-              textDecoration: 'underline',
+              textDecoration: 'none',
               cursor: 'pointer',
+              transition: 'all 0.3s ease',
               '&:hover': {
                 color: themeColors.primary,
+                borderColor: themeColors.primary,
+                backgroundColor: themeColors.lightBackground,
               },
             }}
           >
-            Google Maps
-          </Typography>
-          <Typography
-            sx={{
-              color: themeColors.lightText,
-            }}
-          >
-            |
-          </Typography>
-          <Typography
+            <FaGoogle size={26} />
+          </Box>
+
+          {/* Waze */}
+          <Box
             component="a"
             href={config.location.wazeUrl}
             target="_blank"
             rel="noopener noreferrer"
             sx={{
-              fontFamily: themeFonts.secondary,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              width: 56,
+              height: 56,
+              borderRadius: '50%',
+              border: `2px solid ${themeColors.secondary}`,
               color: themeColors.secondary,
-              fontSize: '0.85rem',
-              textDecoration: 'underline',
+              textDecoration: 'none',
               cursor: 'pointer',
+              transition: 'all 0.3s ease',
               '&:hover': {
                 color: themeColors.primary,
+                borderColor: themeColors.primary,
+                backgroundColor: themeColors.lightBackground,
               },
             }}
           >
-            Waze
-          </Typography>
+            <FaWaze size={26} />
+          </Box>
         </Box>
       </Box>
 

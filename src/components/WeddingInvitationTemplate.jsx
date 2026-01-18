@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { Box, IconButton } from '@mui/material';
+import { Box, IconButton, Typography } from '@mui/material';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import { getTheme } from '../theme/theme';
 import Page1 from './invitation-component/Page1';
@@ -10,6 +10,7 @@ function WeddingInvitationTemplate({ config }) {
   const { themeName, theme } = config;
   const themeData = getTheme(themeName);
   const themeColors = themeData.colors;
+  const themeFonts = themeData.fonts
 
   const themeId = theme?.id || themeName;
   const backgroundImages = {
@@ -59,42 +60,59 @@ function WeddingInvitationTemplate({ config }) {
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
           display: "flex",
+          flexDirection: "column",
           alignItems: "center",
-          justifyContent: "center",
+          justifyContent: "space-between",
           textAlign: "center",
           px: 2,
+          py: 12,
           position: "relative",
           zIndex: 1,
         }}
       >
-        <Box>
+        {/* Title */}
+        <Typography
+          variant="h2"
+          sx={{
+            fontFamily: themeFonts.cursive,
+            color: themeColors.primary,
+            fontSize: '3.5rem',
+            mb: 3,
+            fontWeight: 300,
+            letterSpacing: '0.05em',
+          }}
+        >
+          وليمة العروس
+        </Typography>
+        <Box sx={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%' }}>
           <Page1 config={config} />
-          <IconButton
-            onClick={scrollToLower}
-            sx={{
-              color: themeColors.primary,
-              border: `1px solid rgba(${parseInt(themeColors.primary.slice(1, 3), 16)}, ${parseInt(themeColors.primary.slice(3, 5), 16)}, ${parseInt(themeColors.primary.slice(5, 7), 16)}, 0.2)`,
-              padding: '12px',
-              transition: 'all 0.4s ease',
-              animation: 'float 2s ease-in-out infinite',
-              '@keyframes float': {
-                '0%, 100%': {
-                  transform: 'translateY(0)',
-                },
-                '50%': {
-                  transform: 'translateY(10px)',
-                },
-              },
-              '&:hover': {
-                background: `rgba(${parseInt(themeColors.primary.slice(1, 3), 16)}, ${parseInt(themeColors.primary.slice(3, 5), 16)}, ${parseInt(themeColors.primary.slice(5, 7), 16)}, 0.04)`,
-                border: `1px solid rgba(${parseInt(themeColors.primary.slice(1, 3), 16)}, ${parseInt(themeColors.primary.slice(3, 5), 16)}, ${parseInt(themeColors.primary.slice(5, 7), 16)}, 0.4)`,
-                transform: 'translateY(5px)'
-              }
-            }}
-          >
-            <ArrowDownwardIcon sx={{ fontSize: '1.8rem' }} />
-          </IconButton>
         </Box>
+
+        <IconButton
+          onClick={scrollToLower}
+          sx={{
+            color: themeColors.primary,
+            border: `1px solid rgba(${parseInt(themeColors.primary.slice(1, 3), 16)}, ${parseInt(themeColors.primary.slice(3, 5), 16)}, ${parseInt(themeColors.primary.slice(5, 7), 16)}, 0.2)`,
+            padding: '12px',
+            transition: 'all 0.4s ease',
+            animation: 'float 2s ease-in-out infinite',
+            '@keyframes float': {
+              '0%, 100%': {
+                transform: 'translateY(0)',
+              },
+              '50%': {
+                transform: 'translateY(10px)',
+              },
+            },
+            '&:hover': {
+              background: `rgba(${parseInt(themeColors.primary.slice(1, 3), 16)}, ${parseInt(themeColors.primary.slice(3, 5), 16)}, ${parseInt(themeColors.primary.slice(5, 7), 16)}, 0.04)`,
+              border: `1px solid rgba(${parseInt(themeColors.primary.slice(1, 3), 16)}, ${parseInt(themeColors.primary.slice(3, 5), 16)}, ${parseInt(themeColors.primary.slice(5, 7), 16)}, 0.4)`,
+              transform: 'translateY(5px)'
+            }
+          }}
+        >
+          <ArrowDownwardIcon sx={{ fontSize: '1.8rem' }} />
+        </IconButton>
       </Box>
 
       {/* Lower Section */}
