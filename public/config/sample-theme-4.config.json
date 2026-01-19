@@ -1,0 +1,31 @@
+{
+  "themeName": "theme-4",
+  "title": "Sample Wedding Theme 4",
+  "person1": {
+    "fullName": "Person One Full Name",
+    "shortName": "Person One",
+    "parents": "Father Name & Mother Name"
+  },
+  "person2": {
+    "fullName": "Person Two Full Name",
+    "shortName": "Person Two"
+  },
+  "event": {
+    "date": "Date Here",
+    "startTime": "Start Time",
+    "endTime": "End Time"
+  },
+  "location": {
+    "venue": "Venue Name",
+    "fullAddress": "Full Address Here",
+    "googleMapsUrl": "https://maps.app.goo.gl/",
+    "wazeUrl": "https://waze.com/ul/"
+  },
+  "contacts": [
+    {
+      "name": "Contact Name",
+      "title": "Title",
+      "phone": "+601234567890"
+    }
+  ]
+}

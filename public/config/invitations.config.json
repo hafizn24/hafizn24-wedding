@@ -4,6 +4,16 @@
       "slug": "sample-1",
       "title": "Natasya & Iskandar",
       "configFile": "sample-theme-1.config.json"
+    },
+    {
+      "slug": "sample-3",
+      "title": "Sample Wedding Theme 3",
+      "configFile": "sample-theme-3.config.json"
+    },
+    {
+      "slug": "sample-4",
+      "title": "Sample Wedding Theme 4",
+      "configFile": "sample-theme-4.config.json"
     }
   ]
 }
