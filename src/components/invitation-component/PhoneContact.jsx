@@ -4,33 +4,32 @@ import { getTheme } from "../../theme/theme";
 
 function PhoneContact({ config, contacts }) {
   const themeData = getTheme(config.themeName);
-  const themeColors = themeData.colors;
   const themeFonts = themeData.fonts;
 
   const styles = {
     card: {
       borderRadius: 2,
-      border: `1px solid ${themeColors.lightText}`,
-      backgroundColor: "#ffffff80",
+      border: "1px solid #ccc",          // Neutral gray border
+      backgroundColor: "rgba(249, 249, 249, 0.8)",        // Light universal background
     },
     title: {
       fontFamily: themeFonts.primary,
-      color: themeColors.primary,
+      color: "#333",                           // Neutral dark text
       fontSize: "1.1rem",
       fontWeight: 700,
       mb: 1.5,
     },
     contactName: {
       fontFamily: themeFonts.secondary,
-      color: themeColors.text,
+      color: "#222",                           // Strong neutral black
       fontSize: "1rem",
-      fontWeight: 500,
+      fontWeight: 700,
     },
     contactTitle: {
       fontFamily: themeFonts.secondary,
-      color: themeColors.lightText,
-      fontSize: "0.85rem",
-      fontWeight: 400,
+      color: "#222",                           // Muted gray for secondary info
+      fontSize: "1rem",
+      fontWeight: 500,
       ml: 0.5,
     },
     iconButtonBase: {
@@ -39,25 +38,25 @@ function PhoneContact({ config, contacts }) {
       transition: "all 0.2s ease",
     },
     callButton: {
-      borderColor: themeColors.secondary,
-      color: themeColors.secondary,
+      borderColor: "#007BFF",                  // Universal blue for call
+      color: "#007BFF",
       "&:hover": {
-        backgroundColor: `${themeColors.secondary}15`,
+        backgroundColor: "rgba(0, 123, 255, 0.1)",
         transform: "scale(1.05)",
       },
     },
     whatsappButton: {
-      borderColor: "#25D366",
+      borderColor: "#25D366",                  // WhatsApp green
       color: "#25D366",
       "&:hover": {
-        backgroundColor: "#25D36615",
+        backgroundColor: "rgba(37, 211, 102, 0.1)",
         transform: "scale(1.05)",
       },
     },
     divider: {
       my: 1.5,
       opacity: 0.2,
-      borderColor: themeColors.lightText,
+      borderColor: "#ccc",
     },
   };
 

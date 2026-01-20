@@ -18,8 +18,8 @@ function Page2({ config }) {
         sx={{
           fontFamily: themeFonts.secondary,
           color: themeColors.lightText,
-          fontSize: '2rem',
-          mb: 3, // consistent spacing
+          fontSize: '1.6rem', // reduced from 2rem
+          mb: 3,
           fontWeight: 600,
           letterSpacing: '0.05em',
         }}
@@ -33,7 +33,7 @@ function Page2({ config }) {
         sx={{
           fontFamily: themeFonts.secondary,
           color: themeColors.lightText,
-          fontSize: '1.4rem',
+          fontSize: '1.2rem', // reduced from 1.4rem
           mb: 3,
           fontWeight: 600,
         }}
@@ -47,9 +47,9 @@ function Page2({ config }) {
         sx={{
           fontFamily: themeFonts.secondary,
           color: themeColors.text,
-          fontSize: '1rem',
+          fontSize: '0.9rem', // reduced from 1rem
           mb: 4,
-          lineHeight: 1.8,
+          lineHeight: 1.6,
         }}
       >
         Dengan penuh kesyukuran atas limpah kurnia-Nya,
@@ -62,7 +62,7 @@ function Page2({ config }) {
         sx={{
           fontFamily: themeFonts.primary,
           color: themeColors.primary,
-          fontSize: '1.6rem',
+          fontSize: '1.3rem', // reduced from 1.6rem
           mb: 2,
           fontWeight: 600,
           lineHeight: 1.4,
@@ -90,7 +90,7 @@ function Page2({ config }) {
           sx={{
             fontFamily: themeFonts.primary,
             color: themeColors.primary,
-            fontSize: '1.3rem',
+            fontSize: '1.1rem', // reduced from 1.3rem
             fontWeight: 600,
             mb: 1.5,
           }}
@@ -103,7 +103,7 @@ function Page2({ config }) {
           sx={{
             fontFamily: themeFonts.secondary,
             color: themeColors.text,
-            fontSize: '1.05rem',
+            fontSize: '0.9rem', // reduced from 1.05rem
             mb: 2,
           }}
         >
@@ -117,7 +117,7 @@ function Page2({ config }) {
           sx={{
             fontFamily: themeFonts.primary,
             color: themeColors.primary,
-            fontSize: '1.2rem',
+            fontSize: '1rem', // reduced from 1.2rem
             fontWeight: 500,
             mb: 1.5,
           }}
@@ -130,8 +130,8 @@ function Page2({ config }) {
           sx={{
             fontFamily: themeFonts.secondary,
             color: themeColors.lightText,
-            fontSize: '1rem',
-            lineHeight: 1.6,
+            fontSize: '0.85rem', // reduced from 1rem
+            lineHeight: 1.5,
           }}
         >
           {config.location.fullAddress}
@@ -154,14 +154,14 @@ function Page2({ config }) {
               width: 56,
               height: 56,
               borderRadius: '50%',
-              border: `2px solid ${themeColors.secondary}`,
-              color: themeColors.secondary,
+              border: `2px solid ${themeColors.primary}`,
+              color: themeColors.primary,
               textDecoration: 'none',
               cursor: 'pointer',
               transition: 'all 0.3s ease',
               '&:hover': {
-                color: themeColors.primary,
-                borderColor: themeColors.primary,
+                color: themeColors.secondary,
+                borderColor: themeColors.secondary,
                 backgroundColor: themeColors.lightBackground,
               },
             }}
@@ -182,14 +182,14 @@ function Page2({ config }) {
               width: 56,
               height: 56,
               borderRadius: '50%',
-              border: `2px solid ${themeColors.secondary}`,
-              color: themeColors.secondary,
+              border: `2px solid ${themeColors.primary}`,
+              color: themeColors.primary,
               textDecoration: 'none',
               cursor: 'pointer',
               transition: 'all 0.3s ease',
               '&:hover': {
-                color: themeColors.primary,
-                borderColor: themeColors.primary,
+                color: themeColors.secondary,
+                borderColor: themeColors.secondary,
                 backgroundColor: themeColors.lightBackground,
               },
             }}

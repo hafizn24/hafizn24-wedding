@@ -48,19 +48,6 @@ function Page1({ config }) {
       >
         {config.event.date}
       </Typography>
-
-      {/* Address */}
-      <Typography
-        variant="body1"
-        sx={{
-          fontFamily: themeFonts.secondary,
-          color: themeColors.lightText,
-          fontSize: '1.15rem', // a touch smaller
-          lineHeight: 1.7,
-        }}
-      >
-        {config.location.fullAddress}
-      </Typography>
     </Box>
   )
 }
