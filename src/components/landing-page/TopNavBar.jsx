@@ -1,91 +1,44 @@
-import { Box, Container, Button, Stack, Typography } from '@mui/material';
-import MenuIcon from '@mui/icons-material/Menu';
+import { Menu } from 'lucide-react';
+import { Button } from '../ui/button';
 import NavLink from './NavLink';
 import { colorTokens } from '../../theme/landing-page-theme';
 
 export default function TopNavBar() {
   return (
-    <Box
-      component="nav"
-      sx={{
-        position: 'fixed',
-        top: 0,
-        width: '100%',
-        zIndex: 50,
-        backgroundColor: 'rgba(250, 250, 242, 0.95)',
-        backdropFilter: 'blur(12px)',
-        borderBottom: `1px solid ${colorTokens.outlineVariant}15`,
-        boxShadow: '0 2px 8px rgba(0, 0, 0, 0.04)',
-      }}
-    >
-      <Container maxWidth="lg">
-        <Stack
-          direction="row"
-          justifyContent="space-between"
-          alignItems="center"
-          sx={{ py: 2.5, px: { xs: 2, md: 0 } }}
-        >
+    <nav className="fixed top-0 w-full z-50 bg-amber-50/95 backdrop-blur-xl border-b border-slate-200/15 shadow-sm">
+      <div className="max-w-6xl mx-auto">
+        <div className="flex flex-row justify-between items-center py-2.5 px-2 md:px-0">
           {/* Logo */}
-          <Typography
-            variant="h6"
-            sx={{
-              fontSize: '1.3rem',
-              fontFamily: '"Noto Serif", serif',
-              fontWeight: 700,
-              color: colorTokens.primary,
-              letterSpacing: '-0.5px',
-              cursor: 'pointer',
-            }}
+          <h1
+            className="text-2xl font-bold text-slate-900 font-noto tracking-tight cursor-pointer"
+            style={{ color: colorTokens.primary }}
           >
             Digital Wedding
-          </Typography>
+          </h1>
 
           {/* Desktop Links */}
-          <Stack
-            direction="row"
-            spacing={1}
-            alignItems="center"
-            sx={{ display: { xs: 'none', md: 'flex' } }}
-          >
+          <div className="hidden md:flex flex-row gap-1 items-center">
             <NavLink href="#how-it-works">How It Works</NavLink>
             <NavLink href="#samples">Samples</NavLink>
             <NavLink href="#about">About</NavLink>
 
             <Button
-              variant="contained"
-              sx={{
+              className="ml-2 px-3.5 py-1 text-sm font-semibold rounded-lg transition-all duration-300 hover:shadow-lg hover:scale-95"
+              style={{
                 backgroundColor: colorTokens.primary,
                 color: 'white',
-                px: 3.5,
-                py: 1,
-                borderRadius: '8px',
-                fontSize: '0.95rem',
-                fontWeight: 600,
-                textTransform: 'none',
-                boxShadow: 'none',
-                ml: 2,
-                transition: 'all 0.3s ease',
-                '&:hover': {
-                  backgroundColor: colorTokens.primary,
-                  opacity: 0.9,
-                  transform: 'translateY(-2px)',
-                  boxShadow: `0 4px 12px ${colorTokens.primary}30`,
-                },
-                '&:active': {
-                  transform: 'translateY(0)',
-                },
               }}
             >
               Start Creating
             </Button>
-          </Stack>
+          </div>
 
           {/* Mobile Menu Toggle */}
-          <Box sx={{ display: { xs: 'block', md: 'none' } }}>
-            <MenuIcon sx={{ color: colorTokens.primary, cursor: 'pointer' }} />
-          </Box>
-        </Stack>
-      </Container>
-    </Box>
+          <div className="block md:hidden">
+            <Menu className="text-slate-900 cursor-pointer" size={24} style={{ color: colorTokens.primary }} />
+          </div>
+        </div>
+      </div>
+    </nav>
   );
 }

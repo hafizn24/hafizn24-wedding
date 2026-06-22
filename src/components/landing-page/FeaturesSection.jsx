@@ -1,46 +1,40 @@
-import { Box, Container, Grid, Card, Stack } from '@mui/material';
-import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
-import SpeedIcon from '@mui/icons-material/Speed';
-import PublicIcon from '@mui/icons-material/Public';
-import SecurityIcon from '@mui/icons-material/Security';
-import MobileScreenShareIcon from '@mui/icons-material/MobileScreenShare';
-import GroupsIcon from '@mui/icons-material/Groups';
+import { Award, Zap, Globe, Smartphone, Palette, Lock } from 'lucide-react';
 import SectionHeader from './SectionHeader';
 import { colorTokens } from '../../theme/landing-page-theme';
 
 const features = [
   {
-    icon: SpeedIcon,
+    icon: Zap,
     title: 'Quick & Easy',
     description: 'Create stunning invitations in just minutes with our intuitive editor',
     color: colorTokens.primary,
   },
   {
-    icon: PublicIcon,
+    icon: Globe,
     title: 'Share Anywhere',
     description: 'Send via email, SMS, or share links on social media instantly',
     color: colorTokens.secondary,
   },
   {
-    icon: GroupsIcon,
+    icon: Award,
     title: 'Manage Guests',
     description: 'Track RSVPs and manage your guest list from one dashboard',
     color: colorTokens.tertiary,
   },
   {
-    icon: MobileScreenShareIcon,
+    icon: Smartphone,
     title: 'Mobile Friendly',
     description: 'Beautifully designed invitations that look perfect on any device',
     color: colorTokens.primary,
   },
   {
-    icon: EmojiEventsIcon,
+    icon: Palette,
     title: 'Fully Customizable',
     description: 'Personalize colors, fonts, and layouts to match your theme',
     color: colorTokens.secondary,
   },
   {
-    icon: SecurityIcon,
+    icon: Lock,
     title: 'Secure & Private',
     description: 'Your data and guest information are always protected',
     color: colorTokens.tertiary,
@@ -49,15 +43,13 @@ const features = [
 
 export default function FeaturesSection() {
   return (
-    <Box
-      component="section"
-      sx={{
-        py: { xs: 8, md: 12 },
-        px: 4,
+    <section
+      className="py-8 md:py-12 px-4"
+      style={{
         backgroundColor: colorTokens.surface,
       }}
     >
-      <Container maxWidth="lg">
+      <div className="max-w-6xl mx-auto">
         <SectionHeader
           label="Why Choose Us"
           title="Everything You Need for the Perfect Invitation"
@@ -65,66 +57,60 @@ export default function FeaturesSection() {
         />
 
         {/* Features Grid */}
-        <Grid container spacing={3}>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
           {features.map((feature, index) => {
             const IconComponent = feature.icon;
             return (
-              <Grid item xs={12} sm={6} md={4} key={index}>
-                <Card
-                  sx={{
-                    height: '100%',
-                    p: 4,
-                    backgroundColor: colorTokens.surfaceContainerLow,
-                    border: `1px solid ${colorTokens.outlineVariant}20`,
-                    borderRadius: '12px',
-                    boxShadow: 'none',
-                    transition: 'all 0.3s ease',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    gap: 2,
-                    '&:hover': {
-                      transform: 'translateY(-8px)',
-                      boxShadow: `0 12px 24px ${colorTokens.primary}15`,
-                      borderColor: `${colorTokens.primary}40`,
-                    },
+              <div
+                key={index}
+                className="h-full p-4 rounded-2xl border transition-all duration-300 flex flex-col gap-2 hover:-translate-y-2"
+                style={{
+                  backgroundColor: colorTokens.surfaceContainerLow,
+                  borderColor: `${colorTokens.outlineVariant}20`,
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.boxShadow = `0 12px 24px ${colorTokens.primary}15`;
+                  e.currentTarget.style.borderColor = `${colorTokens.primary}40`;
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.boxShadow = 'none';
+                  e.currentTarget.style.borderColor = `${colorTokens.outlineVariant}20`;
+                }}
+              >
+                {/* Icon */}
+                <div
+                  className="w-14 h-14 rounded-2xl flex items-center justify-center"
+                  style={{
+                    backgroundColor: `${feature.color}20`,
                   }}
                 >
-                  {/* Icon */}
-                  <Box
-                    sx={{
-                      width: 56,
-                      height: 56,
-                      backgroundColor: `${feature.color}20`,
-                      borderRadius: '10px',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
+                  <IconComponent size={28} color={feature.color} />
+                </div>
+
+                {/* Content */}
+                <div className="flex flex-col gap-1 flex-1">
+                  <h3
+                    className="font-semibold"
+                    style={{
+                      color: colorTokens.onSurface,
                     }}
                   >
-                    <IconComponent sx={{ color: feature.color, fontSize: 28 }} />
-                  </Box>
-
-                  {/* Content */}
-                  <Stack spacing={1} sx={{ flex: 1 }}>
-                    <Box sx={{ fontSize: '1.1rem', fontWeight: 600, color: colorTokens.onSurface }}>
-                      {feature.title}
-                    </Box>
-                    <Box
-                      sx={{
-                        fontSize: '0.95rem',
-                        color: colorTokens.onSurfaceVariant,
-                        lineHeight: 1.6,
-                      }}
-                    >
-                      {feature.description}
-                    </Box>
-                  </Stack>
-                </Card>
-              </Grid>
+                    {feature.title}
+                  </h3>
+                  <p
+                    className="text-sm leading-relaxed"
+                    style={{
+                      color: colorTokens.onSurfaceVariant,
+                    }}
+                  >
+                    {feature.description}
+                  </p>
+                </div>
+              </div>
             );
           })}
-        </Grid>
-      </Container>
-    </Box>
+        </div>
+      </div>
+    </section>
   );
 }

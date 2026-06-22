@@ -1,4 +1,3 @@
-import { Box } from '@mui/material';
 import { colorTokens } from '../../theme/landing-page-theme';
 
 /**
@@ -7,26 +6,20 @@ import { colorTokens } from '../../theme/landing-page-theme';
  */
 export default function NavLink({ href, children }) {
   return (
-    <Box
-      component="a"
+    <a
       href={href}
-      sx={{
-        px: 3,
-        py: 1.5,
-        fontSize: '0.95rem',
-        fontWeight: 500,
+      className="px-3 py-1.5 text-sm font-medium transition-colors duration-300 rounded-md cursor-pointer hover:bg-slate-100"
+      style={{
         color: colorTokens.onSurface,
-        textDecoration: 'none',
-        transition: 'color 0.3s ease',
-        borderRadius: '6px',
-        cursor: 'pointer',
-        '&:hover': {
-          color: colorTokens.primary,
-          backgroundColor: `${colorTokens.primaryContainer}20`,
-        },
+      }}
+      onMouseEnter={(e) => {
+        e.currentTarget.style.color = colorTokens.primary;
+      }}
+      onMouseLeave={(e) => {
+        e.currentTarget.style.color = colorTokens.onSurface;
       }}
     >
       {children}
-    </Box>
+    </a>
   );
 }

@@ -1,4 +1,3 @@
-import { Box, Container, Typography, Stack } from '@mui/material';
 import FooterLink from './FooterLink';
 import { colorTokens } from '../../theme/landing-page-theme';
 
@@ -13,62 +12,46 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <Box
-      component="footer"
-      sx={{
+    <footer
+      className="py-6 px-4"
+      style={{
         backgroundColor: '#f5f5f5',
         borderTop: `1px solid ${colorTokens.outlineVariant}20`,
-        py: 6,
-        px: 4,
       }}
     >
-      <Container maxWidth="lg">
-        <Stack
-          direction={{ xs: 'column', md: 'row' }}
-          justifyContent="space-between"
-          alignItems="center"
-          spacing={3}
-        >
+      <div className="max-w-6xl mx-auto">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-3">
           {/* Left - Logo & Copyright */}
-          <Stack spacing={2} alignItems={{ xs: 'center', md: 'flex-start' }}>
-            <Typography
-              sx={{
-                fontSize: '1.125rem',
+          <div className="flex flex-col gap-2 items-center md:items-start">
+            <h3
+              className="text-lg font-bold"
+              style={{
                 fontFamily: '"Noto Serif", serif',
-                fontWeight: 700,
                 color: colorTokens.primary,
               }}
             >
               The Digital Atelier
-            </Typography>
-            <Typography
-              sx={{
-                fontSize: '0.75rem',
-                fontWeight: 600,
-                letterSpacing: '0.05em',
-                textTransform: 'uppercase',
+            </h3>
+            <p
+              className="text-xs font-semibold tracking-widest uppercase"
+              style={{
                 color: colorTokens.onSurfaceVariant,
               }}
             >
               © {currentYear} The Digital Atelier. Affordable Elegance.
-            </Typography>
-          </Stack>
+            </p>
+          </div>
 
           {/* Center - Navigation Links */}
-          <Stack
-            direction="row"
-            spacing={4}
-            justifyContent="center"
-            sx={{ flexWrap: 'wrap' }}
-          >
+          <div className="flex flex-row gap-4 justify-center flex-wrap">
             {footerLinks.map((link) => (
               <FooterLink key={link.label} href={link.href}>
                 {link.label}
               </FooterLink>
             ))}
-          </Stack>
-        </Stack>
-      </Container>
-    </Box>
+          </div>
+        </div>
+      </div>
+    </footer>
   );
 }

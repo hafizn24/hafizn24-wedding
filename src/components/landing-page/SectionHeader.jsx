@@ -1,4 +1,3 @@
-import { Box, Stack, Typography } from '@mui/material';
 import { colorTokens } from '../../theme/landing-page-theme';
 
 /**
@@ -7,45 +6,40 @@ import { colorTokens } from '../../theme/landing-page-theme';
  */
 export default function SectionHeader({ label, title, description, maxWidth = '500px' }) {
   return (
-    <Stack spacing={2} alignItems="center" textAlign="center" sx={{ mb: 10 }}>
+    <div className="flex flex-col gap-2 items-center text-center mb-10">
       {label && (
-        <Typography
-          sx={{
-            fontSize: '0.95rem',
-            fontWeight: 600,
-            letterSpacing: '0.1em',
-            textTransform: 'uppercase',
+        <p
+          className="text-sm font-semibold tracking-widest uppercase"
+          style={{
             color: colorTokens.primary,
           }}
         >
           {label}
-        </Typography>
+        </p>
       )}
 
-      <Typography
-        sx={{
-          fontSize: { xs: '2rem', md: '2.75rem' },
-          fontWeight: 700,
+      <h2
+        className="text-4xl md:text-5xl font-bold"
+        style={{
           color: colorTokens.onSurface,
           fontFamily: '"Noto Serif", serif',
           maxWidth,
         }}
       >
         {title}
-      </Typography>
+      </h2>
 
       {description && (
-        <Typography
-          sx={{
-            fontSize: '1rem',
+        <p
+          className="text-base leading-relaxed"
+          style={{
             color: colorTokens.onSurfaceVariant,
-            maxWidth: maxWidth,
-            lineHeight: 1.6,
+            maxWidth,
           }}
         >
           {description}
-        </Typography>
+        </p>
       )}
-    </Stack>
+    </div>
   );
 }

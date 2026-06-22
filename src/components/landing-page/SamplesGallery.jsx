@@ -1,7 +1,6 @@
-import { Box, Container, Grid, Card, CardContent, Button, CircularProgress, Alert, Stack, Typography } from '@mui/material';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import PreviewIcon from '@mui/icons-material/Preview';
+import { Eye } from 'lucide-react';
 import SectionHeader from './SectionHeader';
 import { colorTokens } from '../../theme/landing-page-theme';
 
@@ -41,16 +40,14 @@ export default function SamplesGallery() {
   ];
 
   return (
-    <Box
+    <section
       id="samples"
-      component="section"
-      sx={{
-        py: { xs: 8, md: 12 },
-        px: 4,
+      className="py-8 md:py-12 px-4"
+      style={{
         backgroundColor: colorTokens.surfaceContainerLow,
       }}
     >
-      <Container maxWidth="lg">
+      <div className="max-w-6xl mx-auto">
         <SectionHeader
           label="Explore & Inspire"
           title="Beautiful Sample Invitations"
@@ -59,168 +56,136 @@ export default function SamplesGallery() {
 
         {/* Error State */}
         {error && (
-          <Alert severity="info" sx={{ mb: 4 }}>
+          <div
+            className="mb-4 p-4 rounded-lg text-sm"
+            style={{
+              backgroundColor: '#e8f5e9',
+              color: '#2e7d32',
+            }}
+          >
             {error}
-          </Alert>
+          </div>
         )}
 
         {/* Loading State */}
         {loading ? (
-          <Box sx={{ display: 'flex', justifyContent: 'center', py: 8 }}>
-            <CircularProgress sx={{ color: colorTokens.primary }} />
-          </Box>
+          <div className="flex justify-center py-8">
+            <div
+              className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2"
+              style={{
+                borderColor: colorTokens.primary,
+              }}
+            />
+          </div>
         ) : invitations.length > 0 ? (
-          <Grid container spacing={4}>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
             {invitations.map((invitation, idx) => {
               const themeColor = themeColors[idx % themeColors.length];
               return (
-                <Grid item xs={12} sm={6} md={4} key={invitation.slug}>
-                  <Card
-                    sx={{
-                      height: '100%',
-                      display: 'flex',
-                      flexDirection: 'column',
-                      borderRadius: '16px',
-                      border: `1px solid ${colorTokens.outlineVariant}20`,
-                      boxShadow: '0 2px 8px rgba(0, 0, 0, 0.06)',
-                      transition: 'all 0.3s ease',
-                      overflow: 'hidden',
-                      '&:hover': {
-                        boxShadow: '0 12px 24px rgba(0, 0, 0, 0.12)',
-                        transform: 'translateY(-8px)',
-                        '& .preview-image': {
-                          transform: 'scale(1.05)',
-                        },
-                      },
+                <div
+                  key={invitation.slug}
+                  className="h-full flex flex-col rounded-3xl border overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 group"
+                  style={{
+                    borderColor: `${colorTokens.outlineVariant}20`,
+                    boxShadow: '0 2px 8px rgba(0, 0, 0, 0.06)',
+                  }}
+                >
+                  {/* Preview Image */}
+                  <div
+                    className="preview-image w-full h-64 flex items-center justify-center transition-transform duration-300 overflow-hidden relative"
+                    style={{
+                      background: `linear-gradient(135deg, ${themeColor.bg} 0%, ${themeColor.primary}15 100%)`,
                     }}
                   >
-                    {/* Preview Image */}
-                    <Box
-                      className="preview-image"
-                      sx={{
-                        width: '100%',
-                        height: 280,
-                        background: `linear-gradient(135deg, ${themeColor.bg} 0%, ${themeColor.primary}15 100%)`,
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        transition: 'transform 0.3s ease',
-                        overflow: 'hidden',
-                        position: 'relative',
-                      }}
-                    >
-                      <Stack alignItems="center" spacing={2}>
-                        <Box
-                          sx={{
-                            width: 64,
-                            height: 64,
-                            backgroundColor: themeColor.primary,
-                            borderRadius: '12px',
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            transition: 'transform 0.3s ease',
-                            '_groupHover': {
-                              transform: 'scale(1.1)',
-                            },
-                          }}
-                        >
-                          <PreviewIcon sx={{ fontSize: 32, color: 'white' }} />
-                        </Box>
-                        <Typography
-                          sx={{
-                            color: themeColor.primary,
-                            fontSize: '0.85rem',
-                            fontWeight: 600,
-                            opacity: 0.7,
-                            letterSpacing: '0.05em',
-                          }}
-                        >
-                          PREVIEW
-                        </Typography>
-                      </Stack>
-                    </Box>
-
-                    {/* Card Content */}
-                    <CardContent sx={{ flexGrow: 1, display: 'flex', flexDirection: 'column', gap: 2 }}>
-                      <Box>
-                        <Typography
-                          sx={{
-                            fontSize: '1.2rem',
-                            fontWeight: 700,
-                            color: colorTokens.onSurface,
-                            fontFamily: '"Noto Serif", serif',
-                            mb: 1,
-                          }}
-                        >
-                          {invitation.title}
-                        </Typography>
-                        <Typography
-                          sx={{
-                            fontSize: '0.9rem',
-                            color: colorTokens.onSurfaceVariant,
-                            lineHeight: 1.5,
-                          }}
-                        >
-                          Beautiful invitation template to use as inspiration for your big day
-                        </Typography>
-                      </Box>
-
-                      <Box sx={{ display: 'flex', gap: 1, pt: 1 }}>
-                        <Box
-                          sx={{
-                            width: 12,
-                            height: 12,
-                            borderRadius: '50%',
-                            backgroundColor: themeColor.primary,
-                          }}
-                        />
-                        <Box
-                          sx={{
-                            width: 12,
-                            height: 12,
-                            borderRadius: '50%',
-                            backgroundColor: themeColor.bg,
-                            border: `2px solid ${colorTokens.outlineVariant}`,
-                          }}
-                        />
-                      </Box>
-
-                      <Button
-                        fullWidth
-                        onClick={() => handleViewInvitation(invitation.slug)}
-                        sx={{
-                          color: 'white',
+                    <div className="flex flex-col items-center gap-2">
+                      <div
+                        className="w-16 h-16 rounded-2xl flex items-center justify-center transition-transform duration-300"
+                        style={{
                           backgroundColor: themeColor.primary,
-                          fontWeight: 600,
-                          textTransform: 'none',
-                          py: 1.2,
-                          borderRadius: '10px',
-                          transition: 'all 0.3s ease',
-                          mt: 'auto',
-                          '&:hover': {
-                            backgroundColor: themeColor.primary,
-                            opacity: 0.9,
-                            transform: 'translateY(-2px)',
-                          },
                         }}
                       >
-                        View Sample
-                      </Button>
-                    </CardContent>
-                  </Card>
-                </Grid>
+                        <Eye size={32} color="white" />
+                      </div>
+                      <p
+                        className="text-xs font-semibold tracking-widest uppercase"
+                        style={{
+                          color: themeColor.primary,
+                          opacity: 0.7,
+                        }}
+                      >
+                        Preview
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Card Content */}
+                  <div className="flex-grow flex flex-col gap-2 p-4">
+                    <div>
+                      <h3
+                        className="text-xl font-bold mb-1"
+                        style={{
+                          color: colorTokens.onSurface,
+                          fontFamily: '"Noto Serif", serif',
+                        }}
+                      >
+                        {invitation.title}
+                      </h3>
+                      <p
+                        className="text-sm leading-relaxed"
+                        style={{
+                          color: colorTokens.onSurfaceVariant,
+                        }}
+                      >
+                        Beautiful invitation template to use as inspiration for your big day
+                      </p>
+                    </div>
+
+                    <div className="flex gap-1 pt-1">
+                      <div
+                        className="w-3 h-3 rounded-full"
+                        style={{
+                          backgroundColor: themeColor.primary,
+                        }}
+                      />
+                      <div
+                        className="w-3 h-3 rounded-full border-2"
+                        style={{
+                          backgroundColor: themeColor.bg,
+                          borderColor: colorTokens.outlineVariant,
+                        }}
+                      />
+                    </div>
+
+                    <button
+                      onClick={() => handleViewInvitation(invitation.slug)}
+                      className="w-full py-2.5 font-semibold rounded-xl transition-all duration-300 mt-auto text-white"
+                      style={{
+                        backgroundColor: themeColor.primary,
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.opacity = '0.9';
+                        e.currentTarget.style.transform = 'translateY(-2px)';
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.opacity = '1';
+                        e.currentTarget.style.transform = 'translateY(0)';
+                      }}
+                    >
+                      View Sample
+                    </button>
+                  </div>
+                </div>
               );
             })}
-          </Grid>
+          </div>
         ) : (
-          <Box textAlign="center" py={8}>
-            <Typography color="textSecondary">
+          <div className="text-center py-8">
+            <p style={{ color: colorTokens.onSurfaceVariant }}>
               No sample invitations available at the moment.
-            </Typography>
-          </Box>
+            </p>
+          </div>
         )}
-      </Container>
-    </Box>
+      </div>
+    </section>
   );
 }

@@ -1,117 +1,93 @@
-import { Box, Container, Typography, Stack, Button } from '@mui/material';
 import { colorTokens } from '../../theme/landing-page-theme';
 
 export default function FinalCTA() {
   return (
-    <Box
-      component="section"
-      sx={{
-        py: { xs: 8, md: 12 },
-        px: 4,
+    <section
+      className="py-8 md:py-12 px-4"
+      style={{
         backgroundColor: colorTokens.surface,
       }}
     >
-      <Container maxWidth="md">
-        <Box
-          sx={{
-            backgroundColor: `linear-gradient(135deg, ${colorTokens.primaryContainer}20 0%, ${colorTokens.secondaryContainer}10 100%)`,
-            borderRadius: '20px',
-            p: { xs: 6, md: 8 },
-            border: `1px solid ${colorTokens.outlineVariant}20`,
+      <div className="max-w-2xl mx-auto">
+        <div
+          className="rounded-3xl p-6 md:p-8 border"
+          style={{
+            background: `linear-gradient(135deg, ${colorTokens.primaryContainer}20 0%, ${colorTokens.secondaryContainer}10 100%)`,
+            borderColor: `${colorTokens.outlineVariant}20`,
           }}
         >
-          <Stack spacing={5} textAlign="center" alignItems="center">
+          <div className="flex flex-col gap-5 text-center items-center">
             {/* Heading */}
-            <Typography
-              sx={{
-                fontSize: { xs: '1.75rem', md: '2.75rem' },
-                fontWeight: 700,
+            <h2
+              className="text-3xl md:text-4xl font-bold leading-snug"
+              style={{
                 color: colorTokens.onSurface,
                 fontFamily: '"Noto Serif", serif',
-                lineHeight: 1.2,
               }}
             >
               Ready to Create Your Digital Invitation?
-            </Typography>
+            </h2>
 
             {/* Subheading */}
-            <Typography
-              sx={{
-                fontSize: '1.05rem',
+            <p
+              className="text-lg max-w-lg leading-relaxed"
+              style={{
                 color: colorTokens.onSurfaceVariant,
-                maxWidth: '500px',
-                lineHeight: 1.7,
               }}
             >
               Join thousands of happy couples and start designing your beautiful digital wedding invitation today. It takes just minutes!
-            </Typography>
+            </p>
 
             {/* CTA Buttons */}
-            <Stack
-              direction={{ xs: 'column', sm: 'row' }}
-              spacing={2}
-              sx={{ pt: 2, width: { xs: '100%', sm: 'auto' } }}
-            >
-              <Button
-                variant="contained"
-                size="large"
-                sx={{
+            <div className="flex flex-col sm:flex-row gap-2 pt-2 w-full sm:w-auto">
+              <button
+                className="px-3 md:px-5 py-4 text-lg font-bold rounded-xl transition-all hover:-translate-y-0.75 text-white"
+                style={{
                   backgroundColor: colorTokens.primary,
-                  color: 'white',
-                  px: { xs: 3, md: 5 },
-                  py: 1.8,
-                  fontSize: '1rem',
-                  fontWeight: 700,
-                  textTransform: 'none',
-                  borderRadius: '10px',
                   boxShadow: `0 8px 24px ${colorTokens.primary}30`,
-                  transition: 'all 0.3s ease',
-                  '&:hover': {
-                    transform: 'translateY(-3px)',
-                    boxShadow: `0 12px 32px ${colorTokens.primary}40`,
-                  },
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.boxShadow = `0 12px 32px ${colorTokens.primary}40`;
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.boxShadow = `0 8px 24px ${colorTokens.primary}30`;
                 }}
               >
                 Start Creating Now
-              </Button>
+              </button>
 
-              <Button
-                variant="outlined"
-                size="large"
-                sx={{
-                  px: { xs: 3, md: 5 },
-                  py: 1.8,
-                  fontSize: '1rem',
-                  fontWeight: 600,
-                  textTransform: 'none',
-                  borderRadius: '10px',
+              <button
+                className="px-3 md:px-5 py-4 text-lg font-semibold rounded-xl transition-all border"
+                style={{
                   color: colorTokens.primary,
                   borderColor: `${colorTokens.primary}50`,
                   backgroundColor: 'transparent',
-                  transition: 'all 0.3s ease',
-                  '&:hover': {
-                    backgroundColor: `${colorTokens.primary}08`,
-                    borderColor: colorTokens.primary,
-                  },
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundColor = `${colorTokens.primary}08`;
+                  e.currentTarget.style.borderColor = colorTokens.primary;
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundColor = 'transparent';
+                  e.currentTarget.style.borderColor = `${colorTokens.primary}50`;
                 }}
               >
                 View Live Demo
-              </Button>
-            </Stack>
+              </button>
+            </div>
 
             {/* Trust Badge */}
-            <Typography
-              sx={{
-                fontSize: '0.9rem',
+            <p
+              className="text-sm pt-2"
+              style={{
                 color: colorTokens.onSurfaceVariant,
-                pt: 2,
               }}
             >
               ✓ No credit card required • ✓ Free to start • ✓ Cancel anytime
-            </Typography>
-          </Stack>
-        </Box>
-      </Container>
-    </Box>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 }

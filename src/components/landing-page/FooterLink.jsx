@@ -1,25 +1,22 @@
-import { Link } from '@mui/material';
 import { colorTokens } from '../../theme/landing-page-theme';
 
 export default function FooterLink({ href, children }) {
   return (
-    <Link
+    <a
       href={href}
-      sx={{
-        fontSize: '0.75rem',
-        fontWeight: 600,
-        letterSpacing: '0.1em',
-        textTransform: 'uppercase',
+      className="text-xs font-semibold tracking-widest uppercase transition-colors duration-300 cursor-pointer"
+      style={{
         color: colorTokens.onSurfaceVariant,
         textDecoration: 'none',
-        transition: 'color 0.3s ease',
-        cursor: 'pointer',
-        '&:hover': {
-          color: colorTokens.primary,
-        },
+      }}
+      onMouseEnter={(e) => {
+        e.currentTarget.style.color = colorTokens.primary;
+      }}
+      onMouseLeave={(e) => {
+        e.currentTarget.style.color = colorTokens.onSurfaceVariant;
       }}
     >
       {children}
-    </Link>
+    </a>
   );
 }

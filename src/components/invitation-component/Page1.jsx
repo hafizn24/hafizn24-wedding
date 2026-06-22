@@ -1,5 +1,4 @@
 import React from 'react'
-import { Typography, Box, Divider } from '@mui/material'
 import { getTheme } from '../../theme/theme'
 
 function Page1({ config }) {
@@ -8,47 +7,37 @@ function Page1({ config }) {
   const themeFonts = themeData.fonts
 
   return (
-    <Box sx={{ textAlign: 'center', maxWidth: '600px', mx: 'auto', px: 2 }}>
+    <div className="text-center max-w-full mx-auto px-2">
       {/* Names */}
-      <Typography
-        variant="h4"
-        sx={{
+      <h2
+        className="text-4xl mb-2.5 font-medium leading-snug"
+        style={{
           fontFamily: themeFonts.primary,
           color: themeColors.text,
-          fontSize: '2.2rem',
-          mb: 2.5,
-          fontWeight: 500,
-          lineHeight: 1.4,
         }}
       >
         {config.person1.shortName} & {config.person2.shortName}
-      </Typography>
+      </h2>
 
       {/* Decorative Divider */}
-      <Divider
-        sx={{
-          width: '60px',
-          mx: 'auto',
-          my: 3,
-          borderColor: themeColors.secondary,
-          opacity: 0.6,
+      <div
+        className="w-15 mx-auto my-6 opacity-60"
+        style={{
+          borderTop: `1px solid ${themeColors.secondary}`,
         }}
       />
 
       {/* Date */}
-      <Typography
-        variant="h6"
-        sx={{
+      <h3
+        className="text-2xl mb-1.5 font-medium"
+        style={{
           fontFamily: themeFonts.secondary,
           color: themeColors.text,
-          fontSize: '1.4rem', // slightly smaller than before
-          mb: 1.8,
-          fontWeight: 500,
         }}
       >
         {config.event.date}
-      </Typography>
-    </Box>
+      </h3>
+    </div>
   )
 }
 

@@ -1,36 +1,18 @@
-import { Box, Typography, Button } from '@mui/material';
-
 function NotFoundPage() {
   return (
-    <Box
-      sx={{
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-        height: '100vh',
-        textAlign: 'center',
-        gap: 3,
-        p: 2,
-        bgcolor: 'background.default',
-      }}
-    >
-      <Typography
-        variant="h2"
-        component="h1"
-        sx={{ fontWeight: 'bold', color: 'error.main' }}
-      >
+    <div className="flex flex-col justify-center items-center h-screen text-center gap-3 p-2 bg-gray-50">
+      <h1 className="text-6xl font-bold text-red-500">
         404
-      </Typography>
+      </h1>
 
-      <Typography variant="h5" sx={{ color: 'text.secondary' }}>
+      <h2 className="text-2xl text-gray-600">
         Invitation not found
-      </Typography>
+      </h2>
 
-      <Typography variant="body1" sx={{ maxWidth: 400, color: 'text.secondary' }}>
+      <p className="max-w-md text-gray-600">
         The link you followed may be broken or the invitation has expired.
-      </Typography>
-    </Box>
+      </p>
+    </div>
   );
 }
 

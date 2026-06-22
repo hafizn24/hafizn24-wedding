@@ -1,6 +1,5 @@
 import React, { useRef } from 'react';
-import { Box, IconButton, Typography } from '@mui/material';
-import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
+import { ArrowDown } from 'lucide-react';
 import { getTheme } from '../theme/theme';
 import Page1 from './invitation-component/Page1';
 import Page2 from './invitation-component/Page2';
@@ -50,129 +49,68 @@ function WeddingInvitationTemplate({ config }) {
   };
 
   return (
-    <Box
-      sx={{
-        width: '100%',
-        minHeight: '100vh',
-        backgroundImage: `url('${backgroundImages.upper}')`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundAttachment: 'fixed',
-        display: 'flex',
-        justifyContent: 'center',
-      }}
-    >
-      <Box
-        sx={{
-          position: 'fixed',
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          backgroundColor: 'rgba(0,0,0,0.6)',
-          backdropFilter: 'blur(8px)',
-          zIndex: 0,
-        }}
-      />
-      <Box
-        sx={{
-          width: '100%',
-          maxWidth: '414px', // 1242px / 3
-          bgcolor: '#fff',
-          minHeight: '100vh',
-          boxShadow: '0 0 20px rgba(0,0,0,0.5)',
-          position: 'relative',
-          zIndex: 1,
-        }}
-      >
-      {/* Upper Section */}
-      <Box
-        sx={{
-          minHeight: "100vh",
-          backgroundImage: `url('${backgroundImages.upper}')`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "space-between",
-          textAlign: "center",
-          px: 2,
-          py: 12,
-          position: "relative",
-          zIndex: 1,
-        }}
-      >
-        {/* Title */}
-        <Typography
-          variant="h2"
-          sx={{
-            fontFamily: themeFonts.cursive,
-            color: themeColors.primary,
-            fontSize: '3.5rem',
-            mb: 3,
-            fontWeight: 300,
-            letterSpacing: '0.05em',
-          }}
+    <div className="w-full min-h-screen bg-fixed bg-cover bg-center flex justify-center" style={{ backgroundImage: `url('${backgroundImages.upper}')` }}>
+      <div className="fixed inset-0 bg-black/60 backdrop-blur-lg z-0" />
+      <div className="w-full max-w-sm bg-white min-h-screen shadow-2xl relative z-10">
+        {/* Upper Section */}
+        <div
+          className="min-h-screen bg-cover bg-center bg-no-repeat flex flex-col items-center justify-between text-center px-2 py-12 relative z-10"
+          style={{ backgroundImage: `url('${backgroundImages.upper}')` }}
         >
-          وليمة العروس
-        </Typography>
-        <Box sx={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%' }}>
-          <Page1 config={config} />
-        </Box>
+          {/* Title */}
+          <h2
+            className="text-5xl mb-3 font-light tracking-wide"
+            style={{
+              fontFamily: themeFonts.cursive,
+              color: themeColors.primary,
+            }}
+          >
+            وليمة العروس
+          </h2>
+          <div className="flex-1 flex items-center justify-center w-full">
+            <Page1 config={config} />
+          </div>
 
-        <IconButton
-          onClick={scrollToLower}
-          sx={{
-            color: themeColors.primary,
-            border: `1px solid rgba(${parseInt(themeColors.primary.slice(1, 3), 16)}, ${parseInt(themeColors.primary.slice(3, 5), 16)}, ${parseInt(themeColors.primary.slice(5, 7), 16)}, 0.2)`,
-            padding: '12px',
-            transition: 'all 0.4s ease',
-            animation: 'float 2s ease-in-out infinite',
-            '@keyframes float': {
-              '0%, 100%': {
-                transform: 'translateY(0)',
-              },
-              '50%': {
-                transform: 'translateY(10px)',
-              },
-            },
-            '&:hover': {
-              background: `rgba(${parseInt(themeColors.primary.slice(1, 3), 16)}, ${parseInt(themeColors.primary.slice(3, 5), 16)}, ${parseInt(themeColors.primary.slice(5, 7), 16)}, 0.04)`,
-              border: `1px solid rgba(${parseInt(themeColors.primary.slice(1, 3), 16)}, ${parseInt(themeColors.primary.slice(3, 5), 16)}, ${parseInt(themeColors.primary.slice(5, 7), 16)}, 0.4)`,
-              transform: 'translateY(5px)'
+          <style>{`
+            @keyframes float {
+              0%, 100% { transform: translateY(0); }
+              50% { transform: translateY(10px); }
             }
-          }}
-        >
-          <ArrowDownwardIcon sx={{ fontSize: '1.8rem' }} />
-        </IconButton>
-      </Box>
+            .float-animation {
+              animation: float 2s ease-in-out infinite;
+            }
+          `}</style>
 
-      {/* Lower Section */}
-      <Box
-        ref={lowerRef}
-        sx={{
-          minHeight: "100vh",
-          backgroundImage: `url('${backgroundImages.lower}')`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          textAlign: "center",
-          px: 2,
-          py: 6,
-          position: "relative",
-          zIndex: 1,
-        }}
-      >
-        <Page2 config={config} />
-      </Box>
-      </Box>
-    </Box>
+          <button
+            onClick={scrollToLower}
+            className="float-animation p-3 transition-all duration-400 hover:translate-y-1.5"
+            style={{
+              color: themeColors.primary,
+              border: `1px solid ${themeColors.primary}33`,
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.backgroundColor = `${themeColors.primary}0a`;
+              e.currentTarget.style.borderColor = `${themeColors.primary}66`;
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.backgroundColor = 'transparent';
+              e.currentTarget.style.borderColor = `${themeColors.primary}33`;
+            }}
+          >
+            <ArrowDown size={28} />
+          </button>
+        </div>
+
+        {/* Lower Section */}
+        <div
+          ref={lowerRef}
+          className="min-h-screen bg-cover bg-center bg-no-repeat flex flex-col items-center justify-center text-center px-2 py-6 relative z-10"
+          style={{ backgroundImage: `url('${backgroundImages.lower}')` }}
+        >
+          <Page2 config={config} />
+        </div>
+      </div>
+    </div>
   );
 }
 

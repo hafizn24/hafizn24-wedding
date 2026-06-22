@@ -1,5 +1,4 @@
 import React from 'react'
-import { Typography, Box } from '@mui/material'
 import { getTheme } from '../../theme/theme'
 import PhoneContact from './PhoneContact'
 import { FaGoogle } from "react-icons/fa";
@@ -11,61 +10,48 @@ function Page2({ config }) {
   const themeFonts = themeData.fonts
 
   return (
-    <Box sx={{ textAlign: 'center', maxWidth: '600px', mx: 'auto', px: 2 }}>
+    <div className="text-center max-w-full mx-auto px-2">
       {/* Opening line */}
-      <Typography
-        variant="h4"
-        sx={{
+      <h2
+        className="text-2xl mb-3 font-semibold tracking-wide"
+        style={{
           fontFamily: themeFonts.secondary,
           color: themeColors.lightText,
-          fontSize: '1.6rem', // reduced from 2rem
-          mb: 3,
-          fontWeight: 600,
-          letterSpacing: '0.05em',
         }}
       >
         بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيْمِ
-      </Typography>
+      </h2>
 
       {/* Parents */}
-      <Typography
-        variant="h6"
-        sx={{
+      <h3
+        className="text-xl mb-3 font-semibold"
+        style={{
           fontFamily: themeFonts.secondary,
           color: themeColors.lightText,
-          fontSize: '1.2rem', // reduced from 1.4rem
-          mb: 3,
-          fontWeight: 600,
         }}
       >
         {config.person1.parents}
-      </Typography>
+      </h3>
 
       {/* Invitation text */}
-      <Typography
-        variant="body1"
-        sx={{
+      <p
+        className="mb-4 leading-relaxed"
+        style={{
           fontFamily: themeFonts.secondary,
           color: themeColors.text,
-          fontSize: '0.9rem', // reduced from 1rem
-          mb: 4,
-          lineHeight: 1.6,
+          fontSize: '0.9rem',
         }}
       >
         Dengan penuh kesyukuran atas limpah kurnia-Nya,
         kami sekeluarga menjemput dengan segala hormat ke majlis perkahwinan anakanda kami yang dikasihi.
-      </Typography>
+      </p>
 
       {/* Names */}
-      <Typography
-        variant="h5"
-        sx={{
+      <h2
+        className="text-xl mb-2 font-semibold leading-snug"
+        style={{
           fontFamily: themeFonts.primary,
           color: themeColors.primary,
-          fontSize: '1.3rem', // reduced from 1.6rem
-          mb: 2,
-          fontWeight: 600,
-          lineHeight: 1.4,
         }}
       >
         {config.person1.fullName}
@@ -73,134 +59,112 @@ function Page2({ config }) {
         &
         <br />
         {config.person2.fullName}
-      </Typography>
+      </h2>
 
       {/* Event Details */}
-      <Box
-        sx={{
-          backgroundColor: themeColors.lightBackground,
-          borderRadius: 2,
-          p: 3,
-          mb: 2,
-          textAlign: 'center',
+      <div
+        className="rounded-lg p-3 mb-2 text-center"
+        style={{
+          backgroundColor: themeColors.lightBackground || '#f5f5f5',
         }}
       >
-        <Typography
-          variant="h6"
-          sx={{
+        <h3
+          className="text-lg font-semibold mb-1.5"
+          style={{
             fontFamily: themeFonts.primary,
             color: themeColors.primary,
-            fontSize: '1.1rem', // reduced from 1.3rem
-            fontWeight: 600,
-            mb: 1.5,
           }}
         >
           {config.event.date}
-        </Typography>
+        </h3>
 
-        <Typography
-          variant="body1"
-          sx={{
+        <p
+          className="mb-2"
+          style={{
             fontFamily: themeFonts.secondary,
             color: themeColors.text,
-            fontSize: '0.9rem', // reduced from 1.05rem
-            mb: 2,
+            fontSize: '0.9rem',
           }}
         >
           {config.event.startTime} – {config.event.endTime}
-        </Typography>
+        </p>
 
-        <Box sx={{ borderTop: `1px solid ${themeColors.border}`, my: 2 }} />
+        <div style={{ borderTop: `1px solid ${themeColors.border || '#e5e7eb'}`, margin: '0.5rem 0' }} />
 
-        <Typography
-          variant="h6"
-          sx={{
+        <h4
+          className="font-medium mb-1.5"
+          style={{
             fontFamily: themeFonts.primary,
             color: themeColors.primary,
-            fontSize: '1rem', // reduced from 1.2rem
-            fontWeight: 500,
-            mb: 1.5,
+            fontSize: '1rem',
           }}
         >
           {config.location.venue}
-        </Typography>
+        </h4>
 
-        <Typography
-          variant="body2"
-          sx={{
+        <p
+          className="leading-relaxed"
+          style={{
             fontFamily: themeFonts.secondary,
             color: themeColors.lightText,
-            fontSize: '0.85rem', // reduced from 1rem
-            lineHeight: 1.5,
+            fontSize: '0.85rem',
           }}
         >
           {config.location.fullAddress}
-        </Typography>
-      </Box>
+        </p>
+      </div>
 
       {/* Map Links */}
-      <Box sx={{ mb: 4 }}>
-        <Box sx={{ display: 'flex', gap: 4, justifyContent: 'center' }}>
+      <div className="mb-4">
+        <div className="flex gap-4 justify-center">
           {/* Google Maps */}
-          <Box
-            component="a"
+          <a
             href={config.location.googleMapsUrl}
             target="_blank"
             rel="noopener noreferrer"
-            sx={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              width: 56,
-              height: 56,
-              borderRadius: '50%',
-              border: `2px solid ${themeColors.primary}`,
+            className="w-14 h-14 rounded-full border-2 flex items-center justify-center text-xl transition-all duration-300 hover:bg-gray-100"
+            style={{
+              borderColor: themeColors.primary,
               color: themeColors.primary,
-              textDecoration: 'none',
-              cursor: 'pointer',
-              transition: 'all 0.3s ease',
-              '&:hover': {
-                color: themeColors.secondary,
-                borderColor: themeColors.secondary,
-                backgroundColor: themeColors.lightBackground,
-              },
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.color = themeColors.secondary;
+              e.currentTarget.style.borderColor = themeColors.secondary;
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.color = themeColors.primary;
+              e.currentTarget.style.borderColor = themeColors.primary;
             }}
           >
             <FaGoogle size={26} />
-          </Box>
+          </a>
 
           {/* Waze */}
-          <Box
-            component="a"
+          <a
             href={config.location.wazeUrl}
             target="_blank"
             rel="noopener noreferrer"
-            sx={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              width: 56,
-              height: 56,
-              borderRadius: '50%',
-              border: `2px solid ${themeColors.primary}`,
+            className="w-14 h-14 rounded-full border-2 flex items-center justify-center text-xl transition-all duration-300 hover:bg-gray-100"
+            style={{
+              borderColor: themeColors.primary,
               color: themeColors.primary,
-              textDecoration: 'none',
-              cursor: 'pointer',
-              transition: 'all 0.3s ease',
-              '&:hover': {
-                color: themeColors.secondary,
-                borderColor: themeColors.secondary,
-                backgroundColor: themeColors.lightBackground,
-              },
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.color = themeColors.secondary;
+              e.currentTarget.style.borderColor = themeColors.secondary;
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.color = themeColors.primary;
+              e.currentTarget.style.borderColor = themeColors.primary;
             }}
           >
             <FaWaze size={26} />
-          </Box>
-        </Box>
-      </Box>
+          </a>
+        </div>
+      </div>
 
       <PhoneContact config={config} contacts={config.contacts} />
-    </Box>
+    </div>
   )
 }
 

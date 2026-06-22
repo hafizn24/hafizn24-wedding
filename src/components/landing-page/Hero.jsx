@@ -1,5 +1,4 @@
-import { Box, Container, Typography, Button, Stack } from '@mui/material';
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import { ArrowRight } from 'lucide-react';
 import { colorTokens } from '../../theme/landing-page-theme';
 
 export default function Hero() {
@@ -8,199 +7,175 @@ export default function Hero() {
   };
 
   return (
-    <Box
-      component="section"
-      sx={{
-        minHeight: '100vh',
-        display: 'flex',
-        alignItems: 'center',
-        pt: 12,
-        pb: 6,
-        px: 4,
-        backgroundColor: 'linear-gradient(135deg, #fafaf2 0%, #f4f4ea 100%)',
-        overflow: 'hidden',
-        position: 'relative',
-        '&::before': {
-          content: '""',
-          position: 'absolute',
-          width: '500px',
-          height: '500px',
-          background: `radial-gradient(circle, ${colorTokens.primaryContainer}15 0%, transparent 70%)`,
-          borderRadius: '50%',
-          top: '-150px',
-          right: '-100px',
-          zIndex: 0,
-        },
-        '&::after': {
-          content: '""',
-          position: 'absolute',
-          width: '300px',
-          height: '300px',
-          background: `radial-gradient(circle, ${colorTokens.secondaryContainer}10 0%, transparent 70%)`,
-          borderRadius: '50%',
-          bottom: '-50px',
-          left: '-100px',
-          zIndex: 0,
-        },
+    <section
+      className="min-h-screen flex items-center pt-12 pb-6 px-4 overflow-hidden relative"
+      style={{
+        background: 'linear-gradient(135deg, #fafaf2 0%, #f4f4ea 100%)',
       }}
     >
-      <Container maxWidth="lg">
-        <Stack
-          spacing={5}
-          alignItems="flex-start"
-          justifyContent="center"
-          sx={{
-            position: 'relative',
-            zIndex: 1,
-            maxWidth: '700px',
-          }}
-        >
+      <style>{`
+        .hero-before {
+          position: absolute;
+          width: 500px;
+          height: 500px;
+          background: radial-gradient(circle, ${colorTokens.primaryContainer}15 0%, transparent 70%);
+          border-radius: 50%;
+          top: -150px;
+          right: -100px;
+          z-index: 0;
+        }
+        .hero-after {
+          position: absolute;
+          width: 300px;
+          height: 300px;
+          background: radial-gradient(circle, ${colorTokens.secondaryContainer}10 0%, transparent 70%);
+          border-radius: 50%;
+          bottom: -50px;
+          left: -100px;
+          z-index: 0;
+        }
+      `}</style>
+      
+      <div className="hero-before" />
+      <div className="hero-after" />
+
+      <div className="max-w-6xl mx-auto">
+        <div className="flex flex-col gap-5 items-start justify-center relative z-10 max-w-2xl">
           {/* Subtitle */}
-          <Typography
-            sx={{
-              fontSize: '0.95rem',
-              fontWeight: 600,
-              letterSpacing: '0.1em',
-              textTransform: 'uppercase',
+          <p
+            className="text-sm font-semibold tracking-widest uppercase"
+            style={{
               color: colorTokens.primary,
             }}
           >
             Create & Share
-          </Typography>
+          </p>
 
           {/* Main Heading */}
-          <Typography
-            sx={{
-              fontSize: { xs: '2.5rem', sm: '3.5rem', md: '4.5rem' },
-              fontWeight: 700,
+          <h1
+            className="text-5xl sm:text-6xl md:text-7xl font-bold leading-tight -tracking-tight"
+            style={{
               color: colorTokens.onSurface,
               fontFamily: '"Noto Serif", serif',
-              lineHeight: 1.1,
-              letterSpacing: '-1px',
             }}
           >
             Digital Wedding Invitations That Impress
-          </Typography>
+          </h1>
 
           {/* Description */}
-          <Typography
-            sx={{
-              fontSize: { xs: '1rem', md: '1.15rem' },
+          <p
+            className="text-lg md:text-xl leading-relaxed max-w-2xl"
+            style={{
               color: colorTokens.onSurfaceVariant,
-              lineHeight: 1.7,
-              maxWidth: '600px',
             }}
           >
             Create beautiful, personalized digital wedding invitations in minutes. Share them instantly with your guests and manage RSVPs all in one place.
-          </Typography>
+          </p>
 
           {/* CTA Buttons */}
-          <Stack
-            direction={{ xs: 'column', sm: 'row' }}
-            spacing={3}
-            sx={{ pt: 2, width: { xs: '100%', sm: 'auto' } }}
-          >
-            <Button
-              variant="contained"
-              size="large"
-              sx={{
+          <div className="flex flex-col sm:flex-row gap-3 pt-2 w-full sm:w-auto">
+            <button
+              className="px-3 md:px-5 py-4 text-lg font-semibold rounded-xl transition-all text-white"
+              style={{
                 backgroundColor: colorTokens.primary,
-                color: 'white',
-                px: { xs: 3, md: 5 },
-                py: 1.8,
-                fontSize: '1rem',
-                fontWeight: 600,
-                textTransform: 'none',
-                borderRadius: '10px',
                 boxShadow: `0 8px 24px ${colorTokens.primary}30`,
-                transition: 'all 0.3s ease',
-                '&:hover': {
-                  transform: 'translateY(-3px)',
-                  boxShadow: `0 12px 32px ${colorTokens.primary}40`,
-                },
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'translateY(-3px)';
+                e.currentTarget.style.boxShadow = `0 12px 32px ${colorTokens.primary}40`;
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.boxShadow = `0 8px 24px ${colorTokens.primary}30`;
               }}
             >
               Start Creating
-            </Button>
+            </button>
 
-            <Button
+            <button
               onClick={handleScroll}
-              sx={{
+              className="flex items-center gap-2 px-3 md:px-5 py-4 font-semibold rounded-xl transition-all"
+              style={{
                 color: colorTokens.primary,
-                fontWeight: 600,
-                textTransform: 'none',
-                fontSize: '1rem',
-                display: 'flex',
-                alignItems: 'center',
-                gap: 1,
-                px: 3,
-                py: 1.8,
-                transition: 'all 0.3s ease',
-                '&:hover': {
-                  backgroundColor: `${colorTokens.primaryContainer}20`,
-                  transform: 'translateX(4px)',
-                },
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = `${colorTokens.primaryContainer}20`;
+                e.currentTarget.style.transform = 'translateX(4px)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = 'transparent';
+                e.currentTarget.style.transform = 'translateX(0)';
               }}
             >
               View Samples
-              <ArrowForwardIcon sx={{ transition: 'transform 0.3s ease' }} />
-            </Button>
-          </Stack>
+              <ArrowRight size={20} />
+            </button>
+          </div>
 
           {/* Stats */}
-          <Stack
-            direction="row"
-            spacing={{ xs: 4, md: 8 }}
-            sx={{
-              pt: 4,
-              borderTop: `1px solid ${colorTokens.outlineVariant}30`,
+          <div
+            className="flex flex-row gap-4 md:gap-8 pt-4 border-t"
+            style={{
+              borderColor: `${colorTokens.outlineVariant}30`,
             }}
           >
-            <Box>
-              <Typography
-                sx={{
-                  fontSize: '1.75rem',
-                  fontWeight: 700,
+            <div>
+              <p
+                className="text-3xl font-bold"
+                style={{
                   color: colorTokens.primary,
                 }}
               >
                 5,000+
-              </Typography>
-              <Typography sx={{ fontSize: '0.9rem', color: colorTokens.onSurfaceVariant }}>
+              </p>
+              <p
+                className="text-sm"
+                style={{
+                  color: colorTokens.onSurfaceVariant,
+                }}
+              >
                 Happy Couples
-              </Typography>
-            </Box>
-            <Box>
-              <Typography
-                sx={{
-                  fontSize: '1.75rem',
-                  fontWeight: 700,
+              </p>
+            </div>
+            <div>
+              <p
+                className="text-3xl font-bold"
+                style={{
                   color: colorTokens.secondary,
                 }}
               >
                 50K+
-              </Typography>
-              <Typography sx={{ fontSize: '0.9rem', color: colorTokens.onSurfaceVariant }}>
+              </p>
+              <p
+                className="text-sm"
+                style={{
+                  color: colorTokens.onSurfaceVariant,
+                }}
+              >
                 Guests Invited
-              </Typography>
-            </Box>
-            <Box>
-              <Typography
-                sx={{
-                  fontSize: '1.75rem',
-                  fontWeight: 700,
+              </p>
+            </div>
+            <div>
+              <p
+                className="text-3xl font-bold"
+                style={{
                   color: colorTokens.tertiary,
                 }}
               >
                 98%
-              </Typography>
-              <Typography sx={{ fontSize: '0.9rem', color: colorTokens.onSurfaceVariant }}>
+              </p>
+              <p
+                className="text-sm"
+                style={{
+                  color: colorTokens.onSurfaceVariant,
+                }}
+              >
                 RSVP Rate
-              </Typography>
-            </Box>
-          </Stack>
-        </Stack>
-      </Container>
-    </Box>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 }

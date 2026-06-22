@@ -1,7 +1,5 @@
 import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { Box, CircularProgress, Typography, createTheme } from '@mui/material';
-import { ThemeProvider, CssBaseline } from '@mui/material';
 import WeddingInvitationTemplate from '../components/WeddingInvitationTemplate';
 import { loadInvitationConfig } from '../utils/configLoader';
 
@@ -37,39 +35,22 @@ function InvitationPage() {
 
   if (loading) {
     return (
-      <Box
-        sx={{
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          height: '100vh',
-        }}
-      >
-        <CircularProgress />
-      </Box>
+      <div className="flex justify-center items-center h-screen">
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
+      </div>
     );
   }
 
   if (error) {
     return (
-      <Box
-        sx={{
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          height: '100vh',
-          textAlign: 'center',
-          flexDirection: 'column',
-          gap: 2,
-        }}
-      >
-        <Typography variant="h5" color="error">
+      <div className="flex justify-center items-center h-screen text-center flex-col gap-2">
+        <h5 className="text-lg font-semibold text-red-500">
           Error: {error}
-        </Typography>
-        <Typography variant="body2" color="textSecondary">
+        </h5>
+        <p className="text-sm text-slate-600">
           Redirecting to home...
-        </Typography>
-      </Box>
+        </p>
+      </div>
     );
   }
 
@@ -77,13 +58,10 @@ function InvitationPage() {
     return null;
   }
 
-  const theme = createTheme();
-
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
+    <div>
       <WeddingInvitationTemplate config={config} />
-    </ThemeProvider>
+    </div>
   );
 }
 
