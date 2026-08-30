@@ -2,6 +2,7 @@ import React from 'react'
 import { Typography, Box } from '@mui/material'
 import { getTheme } from '../../theme/theme'
 import PhoneContact from './PhoneContact'
+import AddToCalendar from './AddToCalendar'
 import { FaGoogle } from "react-icons/fa";
 import { FaWaze } from "react-icons/fa6";
 
@@ -198,6 +199,8 @@ function Page2({ config }) {
           </Box>
         </Box>
       </Box>
+
+      <AddToCalendar config={config} />
 
       <PhoneContact config={config} contacts={config.contacts} />
     </Box>

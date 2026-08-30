@@ -35,25 +35,6 @@ export const loadInvitationConfig = async (slug) => {
   }
 };
 
-/**
- * Gets all available invitation slugs
- * @returns {Promise<Array>} - Array of invitation objects with slug and title
- */
-export const getAllInvitations = async () => {
-  try {
-    const response = await fetch('/config/invitations.config.json');
-    if (!response.ok) {
-      throw new Error('Failed to load invitations list');
-    }
-    const data = await response.json();
-    return data.invitations;
-  } catch (error) {
-    console.error('Error loading invitations list:', error);
-    throw error;
-  }
-};
-
 export default {
   loadInvitationConfig,
-  getAllInvitations,
 };
