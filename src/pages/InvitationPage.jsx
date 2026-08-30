@@ -30,9 +30,7 @@ function InvitationPage() {
       }
     };
 
-    if (slug) {
-      loadConfig();
-    }
+    loadConfig();
   }, [slug, navigate]);
 
   if (loading) {

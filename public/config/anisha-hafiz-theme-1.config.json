@@ -1,0 +1,36 @@
+{
+  "themeName": "theme-1",
+  "title": "Anisha & Hafiz",
+  "person1": {
+    "fullName": "Nurul Anisha Binti Mansor",
+    "shortName": "Anisha",
+    "parents": "Mansor bin Din & Sofiah binti Ahmad"
+  },
+  "person2": {
+    "fullName": "Muhammad Hafiz Bin Mohd Nasarudin",
+    "shortName": "Hafiz"
+  },
+  "event": {
+    "date": "25 Disember 2026",
+    "startTime": "12:00 Tengah hari",
+    "endTime": "5:00 Petang"
+  },
+  "location": {
+    "venue": "Dewan Desa Keda Singkir",
+    "fullAddress": "Dewan Desa Keda Singkir, 06900 Yan, Kedah",
+    "googleMapsUrl": "https://maps.app.goo.gl/6RPhepYDJqBr3jVs8",
+    "wazeUrl": "https://waze.com/ul/hw1p2s3y0k"
+  },
+  "contacts": [
+    {
+      "name": "Mansor",
+      "title": "Ayah",
+      "phone": "+60196062435"
+    },
+    {
+      "name": "Sofiah",
+      "title": "Ibu",
+      "phone": "+60195354802"
+    }
+  ]
+}

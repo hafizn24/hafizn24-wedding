@@ -12,10 +12,13 @@ export const loadInvitationConfig = async (slug) => {
     }
     const invitationsData = await invitationsResponse.json();
 
+    // When no slug is provided, default to the first invitation in the list
+    const targetSlug = slug || invitationsData.invitations[0]?.slug;
+
     // Find the invitation by slug
-    const invitation = invitationsData.invitations.find(inv => inv.slug === slug);
+    const invitation = invitationsData.invitations.find(inv => inv.slug === targetSlug);
     if (!invitation) {
-      throw new Error(`Invitation with slug "${slug}" not found`);
+      throw new Error(`Invitation with slug "${targetSlug}" not found`);
     }
 
     // Load the specific invitation config

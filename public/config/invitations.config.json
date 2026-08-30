@@ -2,8 +2,8 @@
   "invitations": [
     {
       "slug": "sample-1",
-      "title": "Natasya & Iskandar",
-      "configFile": "sample-theme-1.config.json"
+      "title": "Anisha & Hafiz",
+      "configFile": "anisha-hafiz-theme-1.config.json"
     },
     {
       "slug": "sample-3",
