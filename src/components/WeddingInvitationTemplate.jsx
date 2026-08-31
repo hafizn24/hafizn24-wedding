@@ -124,28 +124,35 @@ function WeddingInvitationTemplate({ config }) {
 
         <IconButton
           onClick={scrollToLower}
+          aria-label="Scroll to details"
           sx={{
             color: themeColors.primary,
-            border: `1px solid rgba(${parseInt(themeColors.primary.slice(1, 3), 16)}, ${parseInt(themeColors.primary.slice(3, 5), 16)}, ${parseInt(themeColors.primary.slice(5, 7), 16)}, 0.2)`,
-            padding: { xs: '8px', sm: '12px' },
-            transition: 'all 0.4s ease',
+            backgroundColor: 'rgba(255, 255, 255, 0.85)',
+            border: `1px solid ${themeColors.primary}40`,
+            boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
+            backdropFilter: 'blur(4px)',
+            WebkitBackdropFilter: 'blur(4px)',
+            mt: 2,
+            mb: { xs: 2, sm: 4 },
+            padding: { xs: '10px', sm: '14px' },
+            transition: 'all 0.3s ease',
             animation: 'float 2s ease-in-out infinite',
             '@keyframes float': {
               '0%, 100%': {
                 transform: 'translateY(0)',
               },
               '50%': {
-                transform: 'translateY(10px)',
+                transform: 'translateY(8px)',
               },
             },
             '&:hover': {
-              background: `rgba(${parseInt(themeColors.primary.slice(1, 3), 16)}, ${parseInt(themeColors.primary.slice(3, 5), 16)}, ${parseInt(themeColors.primary.slice(5, 7), 16)}, 0.04)`,
-              border: `1px solid rgba(${parseInt(themeColors.primary.slice(1, 3), 16)}, ${parseInt(themeColors.primary.slice(3, 5), 16)}, ${parseInt(themeColors.primary.slice(5, 7), 16)}, 0.4)`,
-              transform: 'translateY(5px)'
+              animationPlayState: 'paused',
+              backgroundColor: 'rgba(255, 255, 255, 1)',
+              border: `1px solid ${themeColors.primary}`,
             }
           }}
         >
-          <ArrowDownwardIcon sx={{ fontSize: { xs: '1.4rem', sm: '1.8rem' } }} />
+          <ArrowDownwardIcon sx={{ fontSize: { xs: '1.6rem', sm: '2rem' } }} />
         </IconButton>
       </Box>
 
