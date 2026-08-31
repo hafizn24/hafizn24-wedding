@@ -9,6 +9,20 @@ function Page1({ config }) {
 
   return (
     <Box sx={{ textAlign: 'center', maxWidth: '600px', mx: 'auto', px: 2 }}>
+      {/* Wedding Initial */}
+      <Box
+        component="img"
+        src={config.initial}
+        alt="Wedding initial"
+        sx={{
+          width: '160px',
+          height: 'auto',
+          mb: 2,
+          mx: 'auto',
+          display: 'block',
+        }}
+      />
+
       {/* Names */}
       <Typography
         variant="h4"

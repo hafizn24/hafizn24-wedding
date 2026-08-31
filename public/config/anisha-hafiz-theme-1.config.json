@@ -1,6 +1,7 @@
 {
-  "themeName": "theme-1",
+  "themeName": "theme-5",
   "title": "Anisha & Hafiz",
+  "initial": "/theme/theme-5/wedding-initial.png",
   "person1": {
     "fullName": "Nurul Anisha Binti Mansor",
     "shortName": "Anisha",
@@ -11,17 +12,17 @@
     "shortName": "Hafiz"
   },
   "event": {
-    "date": "25 Disember 2026",
+    "date": "26 Disember 2026",
     "startTime": "12:00 Tengah hari",
     "endTime": "5:00 Petang",
     "start": "2026-12-26T12:00:00+08:00",
     "end": "2026-12-26T17:00:00+08:00"
   },
   "location": {
-    "venue": "Dewan Desa Keda Singkir",
-    "fullAddress": "Dewan Desa Keda Singkir, 06900 Yan, Kedah",
-    "googleMapsUrl": "https://maps.app.goo.gl/6RPhepYDJqBr3jVs8",
-    "wazeUrl": "https://waze.com/ul/hw1p2s3y0k"
+    "venue": "Kampung Padang Tok Sora",
+    "fullAddress": "No 5, Kampung Padang Tok Sora, 08400, Merbok, Kedah",
+    "googleMapsUrl": "https://maps.app.goo.gl/WVwtCbMctAF4ETXb6",
+    "wazeUrl": "https://ul.waze.com/ul?venue_id=65798201.657916475.10354571&overview=yes&utm_campaign=default&utm_source=waze_website&utm_medium=lm_share_location"
   },
   "contacts": [
     {
