@@ -54,15 +54,16 @@ function AddToCalendar({ config }) {
     alignItems: 'center',
     justifyContent: 'center',
     gap: 1,
-    px: 2.5,
-    py: 1.2,
+    px: { xs: 2, sm: 2.5 },
+    py: { xs: 1, sm: 1.2 },
+    width: { xs: '100%', sm: 'auto' },
     borderRadius: '999px',
     border: `2px solid ${themeColors.primary}`,
     color: themeColors.primary,
     textDecoration: 'none',
     cursor: 'pointer',
     fontFamily: themeFonts.secondary,
-    fontSize: '0.85rem',
+    fontSize: { xs: '0.8rem', sm: '0.85rem' },
     fontWeight: 600,
     transition: 'all 0.3s ease',
     '&:hover': {
@@ -73,15 +74,15 @@ function AddToCalendar({ config }) {
   }
 
   return (
-    <Box sx={{ mb: 4 }}>
+    <Box sx={{ mb: { xs: 3, sm: 4 } }}>
       <Typography
         variant="h6"
         sx={{
           fontFamily: themeFonts.primary,
           color: themeColors.primary,
-          fontSize: '1rem',
+          fontSize: { xs: '0.9rem', sm: '1rem' },
           fontWeight: 600,
-          mb: 2,
+          mb: { xs: 1.5, sm: 2 },
         }}
       >
         Simpan Tarikh

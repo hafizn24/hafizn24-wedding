@@ -98,8 +98,8 @@ function WeddingInvitationTemplate({ config }) {
           alignItems: "center",
           justifyContent: "space-between",
           textAlign: "center",
-          px: 2,
-          py: 12,
+          px: { xs: 3, sm: 2 },
+          py: { xs: 6, sm: 12 },
           position: "relative",
           zIndex: 1,
         }}
@@ -110,7 +110,7 @@ function WeddingInvitationTemplate({ config }) {
           sx={{
             fontFamily: themeFonts.cursive,
             color: themeColors.primary,
-            fontSize: '3.5rem',
+            fontSize: { xs: '2.2rem', sm: '3rem', md: '3.5rem' },
             mb: 3,
             fontWeight: 300,
             letterSpacing: '0.05em',
@@ -127,7 +127,7 @@ function WeddingInvitationTemplate({ config }) {
           sx={{
             color: themeColors.primary,
             border: `1px solid rgba(${parseInt(themeColors.primary.slice(1, 3), 16)}, ${parseInt(themeColors.primary.slice(3, 5), 16)}, ${parseInt(themeColors.primary.slice(5, 7), 16)}, 0.2)`,
-            padding: '12px',
+            padding: { xs: '8px', sm: '12px' },
             transition: 'all 0.4s ease',
             animation: 'float 2s ease-in-out infinite',
             '@keyframes float': {
@@ -145,7 +145,7 @@ function WeddingInvitationTemplate({ config }) {
             }
           }}
         >
-          <ArrowDownwardIcon sx={{ fontSize: '1.8rem' }} />
+          <ArrowDownwardIcon sx={{ fontSize: { xs: '1.4rem', sm: '1.8rem' } }} />
         </IconButton>
       </Box>
 
@@ -163,8 +163,8 @@ function WeddingInvitationTemplate({ config }) {
           alignItems: "center",
           justifyContent: "center",
           textAlign: "center",
-          px: 2,
-          py: 6,
+          px: { xs: 3, sm: 2 },
+          py: { xs: 5, sm: 6 },
           position: "relative",
           zIndex: 1,
         }}

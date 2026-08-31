@@ -12,15 +12,15 @@ function Page2({ config }) {
   const themeFonts = themeData.fonts
 
   return (
-    <Box sx={{ textAlign: 'center', maxWidth: '600px', mx: 'auto', px: 2 }}>
+    <Box sx={{ textAlign: 'center', maxWidth: { xs: '100%', sm: '600px' }, mx: 'auto', px: 2 }}>
       {/* Opening line */}
       <Typography
         variant="h4"
         sx={{
           fontFamily: themeFonts.secondary,
           color: themeColors.lightText,
-          fontSize: '1.6rem', // reduced from 2rem
-          mb: 3,
+          fontSize: { xs: '1.2rem', sm: '1.6rem' }, // reduced from 2rem
+          mb: { xs: 2, sm: 3 },
           fontWeight: 600,
           letterSpacing: '0.05em',
         }}
@@ -34,8 +34,8 @@ function Page2({ config }) {
         sx={{
           fontFamily: themeFonts.secondary,
           color: themeColors.lightText,
-          fontSize: '1.2rem', // reduced from 1.4rem
-          mb: 3,
+          fontSize: { xs: '1rem', sm: '1.2rem' }, // reduced from 1.4rem
+          mb: { xs: 2, sm: 3 },
           fontWeight: 600,
         }}
       >
@@ -48,8 +48,8 @@ function Page2({ config }) {
         sx={{
           fontFamily: themeFonts.secondary,
           color: themeColors.text,
-          fontSize: '0.9rem', // reduced from 1rem
-          mb: 4,
+          fontSize: { xs: '0.85rem', sm: '0.9rem' }, // reduced from 1rem
+          mb: { xs: 3, sm: 4 },
           lineHeight: 1.6,
         }}
       >
@@ -63,8 +63,8 @@ function Page2({ config }) {
         sx={{
           fontFamily: themeFonts.primary,
           color: themeColors.primary,
-          fontSize: '1.3rem', // reduced from 1.6rem
-          mb: 2,
+          fontSize: { xs: '1.1rem', sm: '1.3rem' }, // reduced from 1.6rem
+          mb: { xs: 1.5, sm: 2 },
           fontWeight: 600,
           lineHeight: 1.4,
         }}
@@ -81,8 +81,10 @@ function Page2({ config }) {
         sx={{
           backgroundColor: themeColors.lightBackground,
           borderRadius: 2,
-          p: 3,
-          mb: 2,
+          p: { xs: 2, sm: 3 },
+          mb: { xs: 2, sm: 2 },
+          border: `1px solid ${themeColors.border}`,
+          boxShadow: '0 1px 3px rgba(0,0,0,0.06)',
           textAlign: 'center',
         }}
       >
@@ -91,7 +93,7 @@ function Page2({ config }) {
           sx={{
             fontFamily: themeFonts.primary,
             color: themeColors.primary,
-            fontSize: '1.1rem', // reduced from 1.3rem
+            fontSize: { xs: '1rem', sm: '1.1rem' }, // reduced from 1.3rem
             fontWeight: 600,
             mb: 1.5,
           }}
@@ -104,7 +106,7 @@ function Page2({ config }) {
           sx={{
             fontFamily: themeFonts.secondary,
             color: themeColors.text,
-            fontSize: '0.9rem', // reduced from 1.05rem
+            fontSize: { xs: '0.85rem', sm: '0.9rem' }, // reduced from 1.05rem
             mb: 2,
           }}
         >
@@ -118,7 +120,7 @@ function Page2({ config }) {
           sx={{
             fontFamily: themeFonts.primary,
             color: themeColors.primary,
-            fontSize: '1rem', // reduced from 1.2rem
+            fontSize: { xs: '0.9rem', sm: '1rem' }, // reduced from 1.2rem
             fontWeight: 500,
             mb: 1.5,
           }}
@@ -131,7 +133,7 @@ function Page2({ config }) {
           sx={{
             fontFamily: themeFonts.secondary,
             color: themeColors.lightText,
-            fontSize: '0.85rem', // reduced from 1rem
+            fontSize: { xs: '0.8rem', sm: '0.85rem' }, // reduced from 1rem
             lineHeight: 1.5,
           }}
         >
@@ -140,8 +142,8 @@ function Page2({ config }) {
       </Box>
 
       {/* Map Links */}
-      <Box sx={{ mb: 4 }}>
-        <Box sx={{ display: 'flex', gap: 4, justifyContent: 'center' }}>
+      <Box sx={{ mb: { xs: 3, sm: 4 } }}>
+        <Box sx={{ display: 'flex', gap: { xs: 3, sm: 4 }, justifyContent: 'center' }}>
           {/* Google Maps */}
           <Box
             component="a"
@@ -152,8 +154,8 @@ function Page2({ config }) {
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              width: 56,
-              height: 56,
+              width: { xs: 44, sm: 56 },
+              height: { xs: 44, sm: 56 },
               borderRadius: '50%',
               border: `2px solid ${themeColors.primary}`,
               color: themeColors.primary,
@@ -180,8 +182,8 @@ function Page2({ config }) {
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              width: 56,
-              height: 56,
+              width: { xs: 44, sm: 56 },
+              height: { xs: 44, sm: 56 },
               borderRadius: '50%',
               border: `2px solid ${themeColors.primary}`,
               color: themeColors.primary,

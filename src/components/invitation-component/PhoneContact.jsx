@@ -4,31 +4,33 @@ import { getTheme } from "../../theme/theme";
 
 function PhoneContact({ config, contacts }) {
   const themeData = getTheme(config.themeName);
+  const themeColors = themeData.colors;
   const themeFonts = themeData.fonts;
 
   const styles = {
     card: {
       borderRadius: 2,
-      border: "1px solid #ccc",          // Neutral gray border
+      border: `1px solid ${themeColors.border}`,
+      boxShadow: "0 1px 4px rgba(0,0,0,0.08)",
       backgroundColor: "rgba(249, 249, 249, 0.8)",        // Light universal background
     },
     title: {
       fontFamily: themeFonts.primary,
-      color: "#333",                           // Neutral dark text
+      color: themeColors.primary,
       fontSize: "1.1rem",
       fontWeight: 700,
       mb: 1.5,
     },
     contactName: {
       fontFamily: themeFonts.secondary,
-      color: "#222",                           // Strong neutral black
-      fontSize: "1rem",
+      color: themeColors.text,
+      fontSize: { xs: "0.95rem", sm: "1rem" },
       fontWeight: 700,
     },
     contactTitle: {
       fontFamily: themeFonts.secondary,
-      color: "#222",                           // Muted gray for secondary info
-      fontSize: "1rem",
+      color: themeColors.lightText,
+      fontSize: { xs: "0.85rem", sm: "1rem" },
       fontWeight: 500,
       ml: 0.5,
     },
@@ -70,12 +72,12 @@ function PhoneContact({ config, contacts }) {
 
   return (
     <Card elevation={0} sx={styles.card}>
-      <CardContent sx={{ p: 3 }}>
+      <CardContent sx={{ p: { xs: 2, sm: 3 } }}>
         <Typography variant="h6" sx={styles.title}>
           Hubungi
         </Typography>
 
-        <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
+        <Box sx={{ display: "flex", flexDirection: "column", gap: { xs: 1.5, sm: 2 } }}>
           {contacts.map((contact, index) => (
             <Box key={contact.phone}>
               <Box
@@ -95,7 +97,7 @@ function PhoneContact({ config, contacts }) {
                   </Typography>
                 </Box>
 
-                <Box sx={{ display: "flex", gap: 1 }}>
+                <Box sx={{ display: "flex", gap: { xs: 1.5, sm: 1 } }}>
                   <IconButton
                     onClick={() => handleCall(contact.phone)}
                     size="small"

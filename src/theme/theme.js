@@ -7,6 +7,8 @@ const themes = {
       tertiary: '#2d4a6d',
       text: '#0a1526',
       lightText: '#4a5568',
+      lightBackground: '#f5f7fa',
+      border: 'rgba(26,54,93,0.15)',
     },
     fonts: {
       cursive: '"Parisienne", cursive',
@@ -21,6 +23,8 @@ const themes = {
       tertiary: '#3A9B9B',      // Teal — subtle highlight or accent text
       text: '#1a1a1a',          // Rich neutral black — optimal contrast for body text
       lightText: '#6b6b6b',     // Soft gray — for secondary info or muted labels
+      lightBackground: '#f5f7fa',
+      border: 'rgba(44,62,80,0.15)',
     },
     fonts: {
       cursive: '"Parisienne", cursive',
@@ -34,14 +38,32 @@ const themes = {
       secondary: '#2D9596',    // Teal — complements leaves, suitable for subheadings or accents
       tertiary: '#E76F51',     // Orange — matches buds, good for small highlights or dividers
       text: '#F5F5F5',         // Soft cream — high contrast on navy, perfect for body text
-      lightText: '#D9D9D9',    // Muted cream — for secondary text or subtle labels
+      lightText: '#D9D9D9',     // Muted cream — for secondary text or subtle labels
+      lightBackground: 'rgba(0,0,0,0.04)',
+      border: 'rgba(245,245,245,0.25)',
     },
     fonts: {
       cursive: '"Parisienne", cursive',
       primary: '"Playfair Display", serif',
       secondary: '"Cormorant Garamond", serif',
     },
-  }
+  },
+  'theme-5': {
+    colors: {
+      primary: '#1a365d',
+      secondary: '#1a365d',
+      tertiary: '#1a365d',
+      text: '#1a365d',
+      lightText: '#1a365d',
+      lightBackground: '#f5f7fa',
+      border: '#1a365d',
+    },
+    fonts: {
+      cursive: '"Parisienne", cursive',
+      primary: '"Playfair Display", serif',
+      secondary: '"Cormorant Garamond", serif',
+    },
+  },
 };
 
 export const getTheme = (themeName) => {

@@ -8,14 +8,14 @@ function Page1({ config }) {
   const themeFonts = themeData.fonts
 
   return (
-    <Box sx={{ textAlign: 'center', maxWidth: '600px', mx: 'auto', px: 2 }}>
+    <Box sx={{ textAlign: 'center', maxWidth: { xs: '100%', sm: '600px' }, mx: 'auto', px: 2 }}>
       {/* Wedding Initial */}
       <Box
         component="img"
         src={config.initial}
         alt="Wedding initial"
         sx={{
-          width: '160px',
+          width: { xs: '120px', sm: '160px' },
           height: 'auto',
           mb: 2,
           mx: 'auto',
@@ -29,8 +29,8 @@ function Page1({ config }) {
         sx={{
           fontFamily: themeFonts.primary,
           color: themeColors.text,
-          fontSize: '2.2rem',
-          mb: 2.5,
+          fontSize: { xs: '1.6rem', sm: '2.2rem' },
+          mb: { xs: 2, sm: 2.5 },
           fontWeight: 500,
           lineHeight: 1.4,
         }}
@@ -43,7 +43,7 @@ function Page1({ config }) {
         sx={{
           width: '60px',
           mx: 'auto',
-          my: 3,
+          my: { xs: 2, sm: 3 },
           borderColor: themeColors.secondary,
           opacity: 0.6,
         }}
@@ -55,8 +55,8 @@ function Page1({ config }) {
         sx={{
           fontFamily: themeFonts.secondary,
           color: themeColors.text,
-          fontSize: '1.4rem', // slightly smaller than before
-          mb: 1.8,
+          fontSize: { xs: '1.1rem', sm: '1.4rem' }, // slightly smaller than before
+          mb: { xs: 1.2, sm: 1.8 },
           fontWeight: 500,
         }}
       >
