@@ -132,9 +132,8 @@ function WeddingInvitationTemplate({ config }) {
             boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
             backdropFilter: 'blur(4px)',
             WebkitBackdropFilter: 'blur(4px)',
-            mt: 2,
-            mb: { xs: 2, sm: 4 },
-            padding: { xs: '10px', sm: '14px' },
+            my: { xs: 3, sm: 5, md: 6 },
+            padding: { xs: '10px', sm: '14px', md: '16px' },
             transition: 'all 0.3s ease',
             animation: 'float 2s ease-in-out infinite',
             '@keyframes float': {
@@ -152,7 +151,7 @@ function WeddingInvitationTemplate({ config }) {
             }
           }}
         >
-          <ArrowDownwardIcon sx={{ fontSize: { xs: '1.6rem', sm: '2rem' } }} />
+          <ArrowDownwardIcon sx={{ fontSize: { xs: '1.6rem', sm: '2rem', md: '2.2rem' } }} />
         </IconButton>
       </Box>
 
