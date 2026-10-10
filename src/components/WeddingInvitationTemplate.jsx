@@ -14,8 +14,8 @@ function WeddingInvitationTemplate({ config }) {
 
   const themeId = theme?.id || themeName;
   const backgroundImages = {
-    upper: `theme/${themeId}/first.png`,
-    lower: `theme/${themeId}/second.png`,
+    upper: `/theme/${themeId}/first.png`,
+    lower: `/theme/${themeId}/second.png`,
   };
 
   const scrollToLower = () => {
